@@ -45,11 +45,8 @@ body {
     border-radius: 20px;
     font-family: 'DM Sans', sans-serif;
     transform: scale(0.5);
-    /* Inicializa a escala do box para 50% do seu tamanho normal */
     opacity: 0;
-    /* Inicializa a opacidade do box para 0 */
     animation: scaleUp 0.5s forwards;
-    /* Adiciona a animação */
 }
 
 @keyframes scaleUp {
@@ -199,6 +196,39 @@ svg:hover {
     cursor: pointer;
 }
 
+.menu-lateral {
+    width: 15%;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: black;
+    margin-top: 20px;
+    user-select: none;
+}
+
+.menu-lateral-item:last-child {
+    border-bottom-right-radius: 15px;
+}
+
+.menu-lateral-item:first-child {
+    border-top-right-radius: 15px;
+}
+
+.menu-lateral-item {
+    border-bottom: 1px solid white;
+    color: white;
+    padding: 20px;
+}
+
+.menu-lateral-item:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    transition: 0.5s;
+
+}
+
+
 
 
 
@@ -221,6 +251,11 @@ svg:hover {
 
     input {
         width: 80%;
+    }
+
+    nav :first-child {
+        border-left: none;
+        border-bottom-left-radius: 0px;
     }
 
     .box-dashboard {

@@ -5,32 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Coletiva</title>
-
     <link rel="stylesheet" href="style/style.css">
-
-    <script src="scripts/script.js" type="module"></script>
-
 </head>
-
 <body>
-
-    <style>
-
-    </style>
     <div class="container-coletiva">
         <div class="box-dashboard">
             <header>
                 <span class="brand"><img src="assets/img/ÍCONE_PRETO.png" alt="Logo da Coletiva"></span>
                 <nav>
                     <div class="navbar">
-                        <span class="nav-item">Dashboard</span>
-                        <span class="nav-item">Editar Cursos</span>
-                        <span class="nav-item">Editar Carrosseis</span>
-                        <span class="nav-item">Editar Equipe</span>
+                        <span class="nav-item" id="dashboard">Dashboard</span>
+                        <span class="nav-item" id="editar-curso">Editar Cursos</span>
+                        <span class="nav-item" id="editar-carrossel">Editar Carrosseis</span>
+                        <span class="nav-item" id="editar-equipe">Editar Equipe</span>
                     </div>
 
                 </nav>
             </header>
+
+            <div class="menu-lateral" id="menu-editar-cursos">
+                <div class="menu-lateral-item">Add Curso</div>
+                <div class="menu-lateral-item">Editar Curso</div>
+                <div class="menu-lateral-item">Remover Curso</div>
+            </div>
+
             <div class="logouticon">
                 <svg id="logout-button" width="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <g>
@@ -42,11 +40,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-
-
-    </script>
+    <script src="scripts/script.js" type="module"></script>
 </body>
-
 </html>

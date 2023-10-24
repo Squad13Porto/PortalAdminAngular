@@ -1,6 +1,6 @@
 // firebaseConfig.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, browserSessionPersistence, setPersistence } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js";
 
 const firebaseConfig = {
@@ -17,4 +17,4 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
 
-export { auth, signInWithEmailAndPassword };
+export { auth, signInWithEmailAndPassword, onAuthStateChanged, browserSessionPersistence, setPersistence };
