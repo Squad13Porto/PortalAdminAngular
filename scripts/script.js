@@ -53,35 +53,17 @@ document.addEventListener('click', function (event) {
     }
 });
 
-const editar_curso = 1
-const editar_carrossel = 2
-const editar_equipe = 3
-let item_ativo = 1
-let menu_lateral = document.getElementById("menu-editar-cursos");
-
-document.addEventListener("click", function (e) {
-    if (e.target.id == "dashboard") {
-        item_ativo = 0
-        menu_lateral.style.display = "none"
-    }
-    if (e.target.id == "editar-curso") {
-        item_ativo = 1
-        menu_lateral.style.display = "block"
-    }
-    if (e.target.id == "editar-carrossel") {
-        item_ativo = 2
-        menu_lateral.style.display = "none"
-    }
-    if (e.target.id == "editar-equipe") {
-        item_ativo = 3
-        menu_lateral.style.display = "none"
-    }
-    if (item_ativo == editar_curso) {
-        menu_lateral.style.display = "block"
-    }
-    else {
-        menu_lateral.style.display = "none"
-    }
+document.getElementById('dashboard').addEventListener('click', () => {
+    window.location.href = 'portal.html'
+})
+document.getElementById('editar-curso').addEventListener('click', () => {
+    window.location.href = 'editar_curso.html'
+})
+document.getElementById('editar-carrossel').addEventListener('click', () => {
+    window.location.href = 'editar_carrossel.html'
+})
+document.getElementById('editar-equipe').addEventListener('click', () => {
+    window.location.href = 'editar_equipe.html'
 })
 
 const add_curso = 1
