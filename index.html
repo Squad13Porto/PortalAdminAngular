@@ -6,55 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Coletiva</title>
 
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-
+    <link rel="stylesheet" href="style/style.css">
+    <script src="scripts/script.js" type="module"></script> 
+    
 </head>
 
 <body>
 
 
-    <div class="container">
+    <div class="container-coletiva">
         <div class="box">
             <div class="form">
-                <img id="logo-coletiva" src="ÍCONE_PRETO.png" alt="Logo da Coletiva">
+                <img id="logo-coletiva" src="assets/img/ÍCONE_PRETO.png" alt="Logo da Coletiva">
                 <input type="text" name="email" placeholder="Email">
                 <input type="password" name="senha" placeholder="Senha">
                 <button id="logar">Logar</button>
             </div>
         </div>
     </div>
-
-
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js";
-        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
-
-        // Initialize Firebase Authentication and get a reference to the service
-
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-            apiKey: "AIzaSyAwRZlaqSIgCTvyjfdf7aDaSZJBFiKJNzA",
-            authDomain: "squad13-7ae1e.firebaseapp.com",
-            projectId: "squad13-7ae1e",
-            storageBucket: "squad13-7ae1e.appspot.com",
-            messagingSenderId: "47491240685",
-            appId: "1:47491240685:web:c1af953387f6f51ec432e4",
-            measurementId: "G-L2TCT9J5R3"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const auth = getAuth(app);
-
-    </script>
 
 
 </body>
