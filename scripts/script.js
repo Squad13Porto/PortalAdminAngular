@@ -84,5 +84,36 @@ document.addEventListener("click", function (e) {
     }
 })
 
+const add_curso = 1
+const editar_curso_lateral = 2
+const remover_curso = 3
+let item_ativo_lateral = 1
+let menu_lateral_edit = document.getElementById("menu-editar-cursos");
+
+document.addEventListener("click", function (e) {
+    if (e.target.id == "dashboard") {
+        item_ativo = 0
+        menu_lateral.style.display = "none"
+    }
+    if (e.target.id == "editar-curso") {
+        item_ativo = 1
+        menu_lateral.style.display = "block"
+    }
+    if (e.target.id == "editar-carrossel") {
+        item_ativo = 2
+        menu_lateral.style.display = "none"
+    }
+    if (e.target.id == "editar-equipe") {
+        item_ativo = 3
+        menu_lateral.style.display = "none"
+    }
+    if (item_ativo == editar_curso) {
+        menu_lateral.style.display = "block"
+    }
+    else {
+        menu_lateral.style.display = "none"
+    }
+})
+
 
 

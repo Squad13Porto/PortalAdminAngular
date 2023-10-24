@@ -228,6 +228,26 @@ svg:hover {
 
 }
 
+.box-painel {
+    background-color: #f1f1f1;
+    width: 80%;
+    height: 40rem;
+    position: absolute;
+    top: 7rem;
+    right: 15px;
+    border-radius: 20px;
+}
+
+.text-nome-aluno {
+    width: 381px;
+    height: 43px;
+}
+
+.text-comentario-aluno {
+    width: 381px;
+    height: 109px;
+}
+
 
 
 
