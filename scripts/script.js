@@ -1,6 +1,9 @@
 // script.js
-import { auth, signInWithEmailAndPassword, onAuthStateChanged, setPersistence, browserSessionPersistence } from './firebase.js';
+import {deleteObject, getDownloadURL, listAll, auth, signInWithEmailAndPassword, onAuthStateChanged, setPersistence, browserSessionPersistence, storage, ref,uploadBytes } from './firebase.js';
 //import do bootstra
+
+
+
 
 
 function LogarComFirebase() {
@@ -66,36 +69,155 @@ document.getElementById('editar-equipe').addEventListener('click', () => {
     window.location.href = 'editar_equipe.html'
 })
 
-const add_curso = 1
-const editar_curso_lateral = 2
-const remover_curso = 3
-let item_ativo_lateral = 1
-let menu_lateral_edit = document.getElementById("menu-editar-cursos");
+/******************************************************************************/
+/* Código para o carrossel de imagens */
+/******************************************************************************/
 
-document.addEventListener("click", function (e) {
-    if (e.target.id == "dashboard") {
-        item_ativo = 0
-        menu_lateral.style.display = "none"
+
+document.addEventListener('DOMContentLoaded', function () {
+    const addImagemDiv = document.getElementById('add-imagem');
+    const removerImagemDiv = document.getElementById('remover-imagem');
+    const addImagensDiv = document.getElementById('display-add-imagem');
+    const removerImagensDiv = document.getElementById('display-remover-imagem');
+
+    addImagemDiv.addEventListener('click', function () {
+        addImagensDiv.style.display = 'block';
+        removerImagensDiv.style.display = 'none';
+        
+    });
+
+    removerImagemDiv.addEventListener('click', function () {
+        addImagensDiv.style.display = 'none';
+        removerImagensDiv.style.display = 'block';
+        
+    });
+});
+
+
+//add imagens
+document.getElementById("selecionar-foto").addEventListener("change", function () {
+    const fileInput = this;
+    const imagePreview = document.getElementById("image-preview");
+
+    if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+
+        reader.onload = function (e) {
+            imagePreview.innerHTML = '<img src="' + e.target.result + '" alt="Imagem selecionada" />';
+        }
+
+        reader.readAsDataURL(fileInput.files[0]);
+    } else {
+        imagePreview.innerHTML = '<span>Pré-visualização da imagem</span>';
     }
-    if (e.target.id == "editar-curso") {
-        item_ativo = 1
-        menu_lateral.style.display = "block"
+});
+
+
+
+document.getElementById('saveButton').addEventListener('click', async () => {
+    const fileInput = document.getElementById('selecionar-foto');
+    const select = document.getElementById('select-carrossel');
+    const selectedOption = select.value;
+
+    if (!fileInput.files.length) {
+        alert('Por favor, selecione um arquivo para fazer upload.');
+        return;
     }
-    if (e.target.id == "editar-carrossel") {
-        item_ativo = 2
-        menu_lateral.style.display = "none"
+
+    const file = fileInput.files[0];
+    let path = 'carousels/';
+
+    if (selectedOption === 'aulas-abertas') {
+        path += 'aulas-abertas/';
+    } else if (selectedOption === 'aulas-pilulas') {
+        path += 'aulas-pilulas/';
+    } else {
+        alert('Por favor, selecione um carrossel válido.');
+        return;
     }
-    if (e.target.id == "editar-equipe") {
-        item_ativo = 3
-        menu_lateral.style.display = "none"
+
+    path += file.name;
+    const storageRef = ref(storage, path);
+
+    try {
+        await uploadBytes(storageRef, file);
+        alert('Upload feito com sucesso!');
+    } catch (error) {
+        console.error('Erro no upload:', error);
+        alert('Erro no upload. Por favor, tente novamente.');
     }
-    if (item_ativo == editar_curso) {
-        menu_lateral.style.display = "block"
+});
+
+
+// remover imagens
+
+function ExibirImagensAulasAbertas() {
+    const storageRef = ref(storage, 'carousels/aulas-abertas');
+    const listRef = ref(storage, 'carousels/aulas-abertas');
+    const imageArea = document.getElementById('image-area');
+    const exibirImagensButton = document.getElementById('exibir-imagens');
+
+    imageArea.innerHTML = '';
+
+    listAll(listRef)
+        .then((res) => {
+            res.items.forEach((itemRef) => {
+                getDownloadURL(itemRef)
+                    .then((url) => {
+                        const card = document.createElement('div');
+                        card.className = 'image-card';
+
+                        const img = document.createElement('img');
+                        img.src = url;
+
+                        const deleteBtn = document.createElement('button');
+                        deleteBtn.className = 'delete-btn';
+                        deleteBtn.textContent = 'Deletar';
+                        deleteBtn.onclick = async () => {
+                            try {
+                                await deleteObject(itemRef);
+                                alert('Imagem deletada com sucesso!');
+                                card.remove();
+                            } catch (error) {
+                                console.error('Erro ao deletar imagem:', error);
+                                alert('Erro ao deletar imagem. Por favor, tente novamente.');
+                            }
+                        }
+
+                        card.appendChild(img);
+                        card.appendChild(deleteBtn);
+                        imageArea.appendChild(card);
+                    })
+                    .catch((error) => {
+                        console.error('Erro ao obter URL de download:', error);
+                    });
+            });
+        })
+        .catch((error) => {
+            console.error('Erro ao listar arquivos:', error);
+        });
+}
+
+
+function ExibirGrupoDeImagensAoClick() {
+    const select = document.getElementById('select-carrossel-remover');
+    const selectedOption = select.value;
+
+    if (selectedOption === 'aulas-abertas') {
+        ExibirImagensAulasAbertas();
+    } else if (selectedOption === 'aulas-pilulas') {
+        ExibirImagensAulasPilulas();
+    } else {
+        alert('Por favor, selecione um carrossel válido.');
+        return;
     }
-    else {
-        menu_lateral.style.display = "none"
-    }
-})
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    const exibirImagensButton = document.getElementById('exibir-imagens');
+    exibirImagensButton.addEventListener('click', ExibirGrupoDeImagensAoClick);
+});
+
 
 
 

@@ -1,5 +1,6 @@
 // firebaseConfig.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+import {deleteObject, getStorage, ref, uploadBytes, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-storage.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, browserSessionPersistence, setPersistence } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js";
 
@@ -10,11 +11,18 @@ const firebaseConfig = {
     storageBucket: "squad13-7ae1e.appspot.com",
     messagingSenderId: "47491240685",
     appId: "1:47491240685:web:c1af953387f6f51ec432e4",
-    measurementId: "G-L2TCT9J5R3"
+    measurementId: "G-L2TCT9J5R3",
+    storageBucket: 'gs://squad13-7ae1e.appspot.com/'
 };
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
+const storage = getStorage(app);
 
-export { auth, signInWithEmailAndPassword, onAuthStateChanged, browserSessionPersistence, setPersistence };
+
+export {deleteObject, auth, signInWithEmailAndPassword, onAuthStateChanged, browserSessionPersistence, setPersistence, getStorage, ref, uploadBytes, storage, listAll, getDownloadURL };
+
+
+
+

@@ -82,7 +82,7 @@ button {
     border: 1px solid #2b2b2b;
     background-color: black;
     color: white;
-    font-weight: bold;
+    font-weight: none;
     font-family: 'DM Sans', sans-serif;
 }
 
@@ -91,7 +91,25 @@ button:hover {
     color: black;
     cursor: pointer;
     font-family: 'DM Sans', sans-serif;
-    transition: 1.0s;
+    transition: 0.5s;
+}
+
+.custom-file-upload {
+    border-radius: 5px;
+    padding: 2.5%;
+    border: 1px solid #2b2b2b;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.custom-file-upload:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: 0.5s;
 }
 
 header {
@@ -248,6 +266,102 @@ svg:hover {
     height: 109px;
 }
 
+/****************************************************************/
+/*****************CSS DE EDITAR-CARROSSEL************************/
+/****************************************************************/
+
+
+div#add-imagens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+
+}
+
+.selects {
+    width: 30%;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #bdbdbd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.image-preview {
+    width: 650px;
+    height: 370px;
+    border: 1px solid #bdbdbd;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Arial', sans-serif;
+    color: #bdbdbd;
+    border-radius: 10px;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+#selecionar-foto {
+    display: none;
+}
+
+
+
+
+.box-edit {
+    text-align: center;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+}
+
+.image-preview-button-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.image-card {
+    width: 170px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 10px;
+    padding: 5px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.image-card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 5px;
+}
+
+.delete-btn {
+    background-color: #f44336;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background-color: #d32f2f;
+}
 
 
 
@@ -294,4 +408,14 @@ svg:hover {
     svg {
         border: 1px solid black;
     }
+
+    .image-preview {
+        width: 170px;
+        height: 96px;
+    }
+
+
+
+
+
 }
