@@ -290,6 +290,11 @@ div#add-imagens {
     margin-bottom: 10px;
 }
 
+.box-dashboard, .box-painel {
+    min-width: 0; /* ou um valor específico se necessário */
+    overflow: hidden; /* ou 'auto' se você quer permitir rolagem */
+}
+
 .image-preview {
     width: 100%;
     max-width: 650px;
@@ -377,6 +382,12 @@ div#add-imagens {
     overflow-y: auto;
     border: 1px solid #ccc;
 }
+.box-dashboard, .box-painel {
+    min-width: 0; /* ou um valor específico se necessário */
+    overflow: hidden; /* ou 'auto' se você quer permitir rolagem */
+    max-height: 100%;
+    overflow-y: auto;
+}
 
 
 /****************************************************************/
@@ -385,6 +396,11 @@ div#add-imagens {
 
 
 @media screen and (max-width: 1024px) {
+    .box-dashboard{
+        max-height: 100%;
+        overflow-y: auto;
+    }
+    
     .box {
         width: 50%;
         height: 80%;
@@ -396,6 +412,13 @@ div#add-imagens {
     .selects{
         width: 70%;
     }
+
+    .box-painel{
+        height: 36rem;
+    }
+
+
+
 }
 
 @media screen and (max-width: 768px) {
@@ -403,6 +426,9 @@ div#add-imagens {
         width: 80%;
         height: 80%;
     }
+    .menu-lateral-item{
+        font-size: 0.7rem;
+        padding: 8px;     }
     .selects{
         width: 70%;
     }
@@ -431,5 +457,10 @@ div#add-imagens {
     svg {
         border: 1px solid black;
     }
+    .box-dashboard{
+        max-height: 100%;
+        overflow-y: auto;
+    }
+    
 
 }
