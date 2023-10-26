@@ -3,6 +3,9 @@ import {deleteObject, getDownloadURL, listAll, auth, signInWithEmailAndPassword,
 //import do bootstra
 
 
+/******************************************************************************/
+/* Código de script GERAL DO PPAINEL */
+/******************************************************************************/
 
 
 
@@ -197,6 +200,57 @@ function ExibirImagensAulasAbertas() {
             console.error('Erro ao listar arquivos:', error);
         });
 }
+
+function ExibirImagensAulasPilulas() {
+    const storageRef = ref(storage, 'carousels/aulas-pilulas');
+    const listRef = ref(storage, 'carousels/aulas-pilulas');
+    const imageArea = document.getElementById('image-area');
+    const exibirImagensButton = document.getElementById('exibir-imagens');
+
+    imageArea.innerHTML = '';
+
+    listAll(listRef)
+        .then((res) => {
+            res.items.forEach((itemRef) => {
+                getDownloadURL(itemRef)
+                    .then((url) => {
+                        const card = document.createElement('div');
+                        card.className = 'image-card';
+
+                        const img = document.createElement('img');
+                        img.src = url;
+
+                        const deleteBtn = document.createElement('button');
+                        deleteBtn.className = 'delete-btn';
+                        deleteBtn.textContent = 'Deletar';
+                        deleteBtn.onclick = async () => {
+                            try {
+                                await deleteObject(itemRef);
+                                alert('Imagem deletada com sucesso!');
+                                card.remove();
+                            } catch (error) {
+                                console.error('Erro ao deletar imagem:', error);
+                                alert('Erro ao deletar imagem. Por favor, tente novamente.');
+                            }
+                        }
+
+                        card.appendChild(img);
+                        card.appendChild(deleteBtn);
+                        imageArea.appendChild(card);
+                    }
+                    )
+                    .catch((error) => {
+                        console.error('Erro ao obter URL de download:', error);
+                    });
+            }
+            );
+        }
+        )
+        .catch((error) => {
+            console.error('Erro ao listar arquivos:', error);
+        });
+}
+
 
 
 function ExibirGrupoDeImagensAoClick() {

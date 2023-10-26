@@ -249,7 +249,7 @@ svg:hover {
 .box-painel {
     background-color: #f1f1f1;
     width: 80%;
-    height: 40rem;
+    height: 41rem;
     position: absolute;
     top: 7rem;
     right: 15px;
@@ -291,19 +291,24 @@ div#add-imagens {
 }
 
 .image-preview {
-    width: 650px;
-    height: 370px;
-    border: 1px solid #bdbdbd;
+    width: 100%;
+    max-width: 650px;
+    padding-top: 56.92%; /* 370 / 650 * 100 */
     position: relative;
+    border: 1px solid #bdbdbd;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    color: #bdbdbd;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Arial', sans-serif;
-    color: #bdbdbd;
-    border-radius: 10px;
 }
 
 .image-preview img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -363,7 +368,20 @@ div#add-imagens {
     background-color: #d32f2f;
 }
 
+#image-area {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-height: 290px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
 
+
+/****************************************************************/
+/*****************CSS DE RESPONSIVIDADE**************************/
+/****************************************************************/
 
 
 @media screen and (max-width: 1024px) {
@@ -375,6 +393,9 @@ div#add-imagens {
     input {
         width: 80%;
     }
+    .selects{
+        width: 70%;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -382,7 +403,9 @@ div#add-imagens {
         width: 80%;
         height: 80%;
     }
-
+    .selects{
+        width: 70%;
+    }
     input {
         width: 80%;
     }
@@ -408,14 +431,5 @@ div#add-imagens {
     svg {
         border: 1px solid black;
     }
-
-    .image-preview {
-        width: 170px;
-        height: 96px;
-    }
-
-
-
-
 
 }
