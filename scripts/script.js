@@ -10,37 +10,46 @@ import {deleteObject, getDownloadURL, listAll, auth, signInWithEmailAndPassword,
 
 
 function LogarComFirebase() {
-    
-    const email = document.querySelector('input[name="email"]').value;
-    const senha = document.querySelector('input[name="senha"]').value;
+    const email = $('input[name="email"]').val();
+    const senha = $('input[name="senha"]').val();
+
+    if (!email || !senha) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+    }
+
+    $('#logar').prop('disabled', true);
+    $('#spinner').show();
 
     setPersistence(auth, browserSessionPersistence)
         .then(() => {
-            // A persistência de sessão agora está configurada. A próxima tentativa de login
-            // será persistida na sessão atual.
             return signInWithEmailAndPassword(auth, email, senha);
         })
         .then((userCredential) => {
-            // Logado com sucesso.
-            const user = userCredential.user;
-            console.log(user);
+            console.log(userCredential.user);
             alert("Logado com sucesso!");
             window.location.href = "portal.html";
         })
         .catch((error) => {
-            // Houve um erro no login.
             alert("Erro ao logar!");
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorCode);
-            console.log(errorMessage);
+            console.log(error.code);
+            console.log(error.message);
+        })
+        .finally(() => {
+            $('#logar').prop('disabled', false);
+            $('#spinner').hide();
         });
 }
 
-document.addEventListener('click', function (event) {
-    if (event.target.id == 'logar') {
-        LogarComFirebase();
-    }
+
+$(document).ready(function () {
+    $('#logar').on('click', LogarComFirebase);
+
+    $(document).on('keydown', function (event) {
+        if (event.key === 'Enter') {
+            LogarComFirebase();
+        }
+    });
 });
 
 function LogoutOnClick() {
