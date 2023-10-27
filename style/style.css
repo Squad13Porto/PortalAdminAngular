@@ -256,20 +256,63 @@ svg:hover {
     border-radius: 20px;
 }
 
+.primeiro-bloco {
+    display: flex;  
+}
+
+.box-painel h4{
+    margin-left: 1rem;
+}
+
+.text-evidencias {
+    margin-bottom: 5px;
+    width: 50%;   
+    
+}
+
+.text-evidencias h5 {
+    margin-top: 0.7rem;
+    margin-bottom: 0.7rem;
+}
+
+.Evidencia-cadastradas {
+    width: 80%;
+    height: 5.5rem;
+    border-radius: 5px;
+
+}   
+
+.text-aluno{
+    margin-top: 0.15rem;
+    margin-bottom: 5px;
+    width: 50%;
+}
+
 .text-nome-aluno {
-    width: 381px;
-    height: 43px;
+    width: 80%;
+    height: 0.4rem;
 }
 
 .text-comentario-aluno {
-    width: 381px;
-    height: 109px;
+    width: 80%;
+    height: 3.5rem;
 }
 
 /****************************************************************/
 /*****************CSS DE EDITAR-CARROSSEL************************/
 /****************************************************************/
+.area-botao {
+    width: 18%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
 
+.area-botao2 {
+    display: flex;
+    width: 18%;
+    padding-left: 0px;
+    padding-right: 0px;
+}
 
 div#add-imagens {
     display: flex;
@@ -393,6 +436,85 @@ div#add-imagens {
 /****************************************************************/
 /*****************CSS DE RESPONSIVIDADE**************************/
 /****************************************************************/
+.botao-mais-menos {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    padding: 0rem;
+    
+}
+
+.segundo-bloco {
+    display:flex;
+}
+
+.area-pertencimento-oqueVaiAprender {
+    width: 50%;
+}
+
+.pertencimento {
+    width: 85%;
+    height: 3.5rem;
+    margin: 0.7rem;
+    border-radius: 5px;
+}
+
+.oqueVaiAprender {
+    width: 85%;
+    height: 3.5rem;
+    margin: 0.7rem;
+    border-radius: 5px;
+}
+
+.area-solucao {
+    width: 50%;
+}
+
+.solucao {
+    width: 85%;
+    height: 3.5rem;
+    margin: 0.7rem;
+    border-radius: 5px;
+}
+
+.link-video {
+    width: 80%;
+    height: 1rem;
+    margin: 0.7rem;
+    border-radius: 5px;
+}
+
+.horas-certificado {
+    width: 80%;
+    height: 1rem;
+    margin: 0.7rem;
+    border-radius: 5px;
+}
+
+.Qtd-aulas-modulos {
+    display: flex;
+    width: 93%;
+    justify-content: space-between;
+}
+
+.qtd-aulas{
+    width: 30%;
+}
+
+.qtd-modulos {
+    width: 30%;
+}
+
+.area-lista-itens {
+    width: 50%;
+}
+
+.lista-itens {
+    width: 87%;
+    border-radius: 5px;
+    height: 4rem;
+    margin-left: 0.7rem;
+}
 
 
 @media screen and (max-width: 1024px) {
