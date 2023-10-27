@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Coletiva</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div class="container-coletiva">
+        <div class="box-dashboard">
+            <header>
+                <span class="brand"><img src="assets/img/ÍCONE_PRETO.png" alt="Logo da Coletiva"></span>
+                <nav>
+                    <div class="navbar">
+                        <span class="nav-item" id="dashboard">Dashboard</span>
+                        <span class="nav-item" id="editar-curso">Editar Cursos</span>
+                        <span class="nav-item" id="editar-carrossel">Editar Carrosseis</span>
+                        <span class="nav-item" id="editar-equipe">Editar Equipe</span>
+                    </div>
+
+                </nav>
+            </header>
+
+            <div class="menu-lateral" id="menu-editar-cursos">
+                <div class="menu-lateral-item">Add Curso</div>
+                <div class="menu-lateral-item">Editar Curso</div>
+                <div class="menu-lateral-item">Remover Curso</div>
+            </div>
+            <div id="addcurso-frame2" class="box-painel">
+                <h4>Criação de cards de evidência.</h4>
+                <div class="primeiro-bloco">
+                    <div>
+                        
+                    </div>
+                    <div class="text-aluno">
+                        <input class="text-nome-aluno" type="text" placeholder="Nome do aluno">
+                        <input class="text-comentario-aluno" type="text" placeholder="Comentário do aluno">
+                    </div>
+                    <div class="text-evidencias">
+                        <h5>Evidência Cadastradas (Max: 8)</h5>
+                        <textarea name="Evidencia-cadastradas" id="Evidencia-cadastradas" class="Evidencia-cadastradas" cols="4" rows="8"></textarea>
+                    </div>
+                </div>
+                <div class="area-botao">
+                    <input class="botao-mais-menos" type="image" src="/assets/img/plus-circle-svgrepo-com 1.png" alt="botão adicionar evidência">
+                    <input class="botao-mais-menos" type="image" src="/assets/img/subtract-round-svgrepo-com 3.png" alt="botão remover evidência">
+                </div>
+                <div class="segundo-bloco">
+                    <div class="area-pertencimento-oqueVaiAprender">
+                        <textarea name="pertencimento" id="pertencimento" class="pertencimento" cols="4" rows="8" placeholder="Pertencimento (Máx 210 caracteres)"></textarea>
+                        <textarea name="oqueVaiAprender" id="oqueVaiAprender" class="oqueVaiAprender" cols="4" rows="8" placeholder="O que você irá aprender aqui (Máx 120 caracteres e 8 itens)"></textarea>
+                        <div class="area-botao2">
+                            <input class="botao-mais-menos" type="image" src="/assets/img/plus-circle-svgrepo-com 1.png" alt="botão adicionar evidência">
+                            <input class="botao-mais-menos" type="image" src="/assets/img/subtract-round-svgrepo-com 3.png" alt="botão remover evidência">
+                        </div>
+                    </div>
+                    <div class="area-solucao">
+                        <textarea class="solucao" name="solucao" id="solucao" cols="4" rows="8" placeholder="Solução (Máx 210 caracteres)"></textarea>
+                        <input class="link-video" type="text" placeholder="Link do video da Solução">
+                        <input class="horas-certificado" type="text" placeholder="Horas do certificado">
+                        <div class="Qtd-aulas-modulos">
+                            <input class="qtd-aulas" type="text" placeholder="Qtd aulas">
+                            <input class="qtd-modulos" type="text" placeholder="Qtd modulos">
+                        </div>
+                    </div> 
+                </div>
+                <div class="area-lista-itens">
+                    <select class="lista-itens" name="lista-itens" id="lista-itens">
+                        <Option value="0">Lista do que irá aprender</Option>
+                    </select>
+                </div>
+            </div>
+            <div class="logouticon">
+                <svg id="logout-button" width="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                            d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5zm10-6l5-4-5-4v3H9v2h6v3z" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/script.js" type="module"></script>
+</body>
+</html>
