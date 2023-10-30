@@ -1,8 +1,10 @@
 // firebaseConfig.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
-import {deleteObject, getStorage, ref, uploadBytes, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-storage.js";
+import { deleteObject, getStorage, ref, uploadBytes, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-storage.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, browserSessionPersistence, setPersistence } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js";
+import { arrayUnion, getDocs, addDoc, collection, getDoc, updateDoc, doc, getFirestore } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyAwRZlaqSIgCTvyjfdf7aDaSZJBFiKJNzA",
@@ -18,10 +20,11 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth(app);
+const db = getFirestore(app);
 const storage = getStorage(app);
 
 
-export {deleteObject, auth, signInWithEmailAndPassword, onAuthStateChanged, browserSessionPersistence, setPersistence, getStorage, ref, uploadBytes, storage, listAll, getDownloadURL };
+export { getDocs, arrayUnion, db, addDoc, collection, getDoc, updateDoc, doc, getFirestore, deleteObject, auth, signInWithEmailAndPassword, onAuthStateChanged, browserSessionPersistence, setPersistence, getStorage, ref, uploadBytes, storage, listAll, getDownloadURL };
 
 
 

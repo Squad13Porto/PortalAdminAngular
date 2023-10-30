@@ -1,5 +1,6 @@
 // script.js
-import {deleteObject, getDownloadURL, listAll, auth, signInWithEmailAndPassword, onAuthStateChanged, setPersistence, browserSessionPersistence, storage, ref,uploadBytes } from './firebase.js';
+import {getDocs, arrayUnion, db, addDoc, collection, getDoc, updateDoc, doc, getFirestore, deleteObject, getDownloadURL, listAll, auth, signInWithEmailAndPassword, onAuthStateChanged, setPersistence, browserSessionPersistence, storage, ref, uploadBytes } from './firebase.js';
+
 //import do bootstra
 
 
@@ -77,7 +78,7 @@ document.getElementById('editar-curso').addEventListener('click', () => {
 document.getElementById('editar-carrossel').addEventListener('click', () => {
     window.location.href = 'editar_carrossel.html'
 })
-document.getElementById('editar-equipe').addEventListener('click', () => {
+document.getElementById('editar-cards').addEventListener('click', () => {
     window.location.href = 'editar_equipe.html'
 })
 
@@ -95,13 +96,13 @@ document.addEventListener('DOMContentLoaded', function () {
     addImagemDiv.addEventListener('click', function () {
         addImagensDiv.style.display = 'block';
         removerImagensDiv.style.display = 'none';
-        
+
     });
 
     removerImagemDiv.addEventListener('click', function () {
         addImagensDiv.style.display = 'none';
         removerImagensDiv.style.display = 'block';
-        
+
     });
 });
 
@@ -283,4 +284,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+
+/******************************************************************************/
+/* Código para os cards da landing page */
+/******************************************************************************/
 

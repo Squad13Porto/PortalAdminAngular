@@ -11,7 +11,7 @@
 <body>
     <div class="container-coletiva">
         <div class="box-dashboard">
-            
+
             <header>
                 <span class="brand"><img src="assets/img/ÍCONE_PRETO.png" alt="Logo da Coletiva"></span>
                 <nav>
@@ -19,31 +19,520 @@
                         <span class="nav-item" id="dashboard">Dashboard</span>
                         <span class="nav-item" id="editar-curso">Editar Cursos</span>
                         <span class="nav-item" id="editar-carrossel">Editar Carrosseis</span>
-                        <span class="nav-item" id="editar-equipe">Editar Equipe</span>
+                        <span class="nav-item" id="editar-cards">Editar cards</span>
                     </div>
 
                 </nav>
             </header>
-            <div class="menu-lateral" id="menu-editar-equipe">
-                <div class="menu-lateral-item">Add Pessoa</div>
-                <div class="menu-lateral-item">Editar Pessoa</div>
-                <div class="menu-lateral-item">Remover Pessoa</div>
-            </div>
-            <div class="logouticon">
-                <svg id="logout-button" width="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <g>
-                        <path fill="none" d="M0 0h24v24H0z" />
-                        <path
-                            d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5zm10-6l5-4-5-4v3H9v2h6v3z" />
-                    </g>
-                </svg>
+            <div class="content-wrapper">
+                <style>
+                    input#nome-equipe, input#nome-equipe-edit {
+                        padding: 1%;
+                        width: 55%;
+                    }
+
+                    select.selects {
+                        padding: 1%;
+                        width: 55%;
+                    }
+
+                    textarea#titulacao,
+                    textarea#titulacao-edit {
+                        margin-bottom: 1%;
+                        resize: none;
+
+                    }
+
+                    #adicionar-equipe {
+                        padding: 1%;
+                        width: 25%;
+                        background-color: #000;
+                        color: #fff;
+                        border: none;
+                        border-radius: 5px;
+                    }
+
+                    #adicionar-equipe:hover {
+                        background-color: #fff;
+                        color: #000;
+                        border: 1px solid #000;
+                    }
+
+                    #area-retrato,
+                    #area-retrato-edit {
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                    }
+
+                    label#label-retrato-equipe,
+                    label#label-retrato-equipe-edit {
+                        width: 70%;
+                        padding: 1%;
+                        margin: 0 auto;
+                        border: 1px solid #000;
+                        background-color: #000;
+                        border-radius: 5px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        cursor: pointer;
+                        color: #fff;
+                    }
+
+                    label#label-retrato-equipe:hover,
+                    label#label-retrato-equipe-edit:hover {
+                        background-color: #fff;
+                        color: #000;
+                        border: 1px solid #000;
+                        transition: 0.2s;
+                    }
+
+
+
+                    input#retrato-equipe,
+                    input#retrato-equipe-edit {
+                        display: none;
+                    }
+
+                    #preview-retrato-equipe,
+                    #preview-retrato-equipe-edit {
+                        padding: 1%;
+                        margin: 0 auto;
+                        border-radius: 15px;
+                        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+                    }
+
+                    .column {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: center;
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    .row {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+
+                        /* Isso alinhará os itens no topo */
+                    }
+                </style>
+
+
+                <div class="box-painel" id="display-remover-equipe">
+                    <div id="div-remover-equipe">
+                        <div class="box-edit row">
+                            <div class="column">
+                                <h2>Remoção de membro da equipe</h2>
+                                <p>Aqui você pode remover membros que compõe a coletiva</p>
+                                <select class="selects"  name="select-equipe-existente" id="select-equipe-existente-remover">
+                                    <option value="none">Selecine um membro para remover</option>
+                                </select>
+                                <button id="remover-equipe">Remover</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="box-painel" id="display-editar-equipe">
+                    <div id="div-editar-equipe">
+                        <dov class="box-edit row">
+                            <div class="column">
+
+                                <h2>
+                                    Edição de membro da equipe
+                                </h2>
+                                <p>
+                                    Aqui você pode editar membros que compõe a coletiva
+                                </p>
+
+                                <select class="selects" name="select-equipe-existente" id="select-equipe-existente">
+                                    <option value="none">Selecine um membro para editar</option>
+                                </select>
+
+                                <button id="carregar-dados-pessoa">Carregar Dados da pessoa</button>
+
+                                <div class="form-group">
+                                    <input type="text" name="nome-equipe" id="nome-equipe-edit"
+                                        placeholder="Nome da pessoa" disabled="true">
+                                    <textarea name="titulacao" id="titulacao-edit" cols="70" rows="10"
+                                        placeholder="Titulação da pessoa" disabled="true"></textarea>
+                                    <button id="salvar-edicao-equipe">Salvar Edição</button>
+                                </div>
+
+                            </div>
+
+                            <div id="area-retrato">
+                                <h4>Foto do perfil</h4>
+                                <img id="preview-retrato-equipe-edit" alt="Preview da foto de perfil"
+                                    style="width: 145px; height: 189px; display: none;" />
+                                <label id="label-retrato-equipe-edit" style="display: none;">
+                                    <input type="file" name="retrato-equipe" id="retrato-equipe-edit"
+                                        accept=".jpg, .png">
+                                    Selecionar Foto de Perfil
+                                </label>
+                            </div>
+                        </dov>
+                    </div>
+                </div>
+
+                <div class="box-painel" id="display-add-equipe">
+
+                    <div id="div-add-equipe">
+                        <div class="box-edit row">
+                            <div class="column">
+                                <h2>Adição de membro da equipe</h2>
+                                <p>Aqui você pode adicionar novos membros que compõe a coletiva</p>
+                                <div class="form-group">
+                                    <input type="text" name="nome-equipe" id="nome-equipe" placeholder="Nome da pessoa">
+                                    <textarea name="titulacao" id="titulacao" cols="70" rows="10"
+                                        placeholder="Titulação da pessoa"></textarea>
+                                    <button id="adicionar-equipe">Adicionar</button>
+                                </div>
+                            </div>
+                            <div id="area-retrato">
+                                <label id="label-retrato-equipe">
+                                    <input type="file" name="retrato-equipe" id="retrato-equipe" accept=".jpg, .png">
+                                    Selecionar Foto de Perfil
+                                </label>
+                                <img id="preview-retrato-equipe" alt="Preview da foto de perfil"
+                                    style="width: 145px; height: 189px; display: none;" />
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="menu-lateral" id="menu-editar-equipe">
+                    <div class="menu-lateral-item" id="menu-lateral-add-equipe">Add Equipe</div>
+                    <div class="menu-lateral-item" id="menu-lateral-editar-equipe">Editar Equipe</div>
+                    <div class="menu-lateral-item" id="menu-lateral-remover-equipe">Remover Equipe</div>
+                </div>
+                <div class="menu-lateral" id="menu-editar-validacao">
+                    <div class="menu-lateral-item" id="menu-lateral-add-card-validacao">Add Validação</div>
+                    <div class="menu-lateral-item" id="menu-lateral-editar-card-validacao">Editar Validação</div>
+                    <div class="menu-lateral-item" id="menu-lateral-remover-card-validacao">Remover Validação</div>
+                </div>
+                <div class="logouticon">
+                    <svg id="logout-button" width="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path
+                                d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5zm10-6l5-4-5-4v3H9v2h6v3z" />
+                        </g>
+                    </svg>
+                </div>
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <script src="scripts/checkauth.js" type="module"></script>
     <script src="scripts/script.js" type="module"></script>
+
+    <script type="module">
+
+        import { getDocs, arrayUnion, db, addDoc, collection, getDoc, updateDoc, doc, getFirestore, deleteObject, getDownloadURL, listAll, auth, signInWithEmailAndPassword, onAuthStateChanged, setPersistence, browserSessionPersistence, storage, ref, uploadBytes } from '/scripts/firebase.js';
+
+
+        /***************/
+        /*NAVGEGAÇÃO ENTRE TELAS*/
+        /***************/
+        document.addEventListener('DOMContentLoaded', function () {
+            const secoes = {
+                'menu-lateral-add-equipe': 'display-add-equipe',
+                'menu-lateral-editar-equipe': 'display-editar-equipe',
+                'menu-lateral-remover-equipe': 'display-remover-equipe',
+                'menu-lateral-add-card-validacao': 'display-add-card-validacao',
+                'menu-lateral-editar-card-validacao': 'display-editar-card-validacao',
+                'menu-lateral-remover-card-validacao': 'display-remover-card-validacao'
+            };
+
+            Object.keys(secoes).forEach(function (menuId) {
+                const displayId = secoes[menuId];
+                document.getElementById(menuId).addEventListener('click', function () {
+                    Object.values(secoes).forEach(function (secId) {
+                        const section = document.getElementById(secId);
+                        section.style.display = secId === displayId ? 'block' : 'none';
+                    });
+                });
+            });
+        });
+
+        /***************/
+        /*Visualização de fotos*/
+        /***************/
+        document.getElementById('retrato-equipe').addEventListener('change', function (e) {
+            const input = e.target;
+            const preview = document.getElementById('preview-retrato-equipe');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
+        document.getElementById('retrato-equipe-edit').addEventListener('change', function (e) {
+            const input = e.target;
+            const preview = document.getElementById('preview-retrato-equipe-edit');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        });
+        /***************/
+        /*REFERÊNCIAS AO BANCO DE DADOS E STORAGE*/
+        /***************/
+        const dbRef = doc(db, 'cards', 'h84fnjrGnt4S4HHGQTAb');
+
+        /***************/
+        /*FUNÇÕES GERAIS*/
+        /***************/
+        function getFieldValue(id) {
+            return document.getElementById(id).value.trim();
+        }
+
+        function getFileInput(id) {
+            const fileInput = document.getElementById(id);
+            return fileInput.files[0];
+        }
+
+        async function uploadImage(file) {
+            const storageRef = ref(storage, `fotos-equipe/${file.name}`);
+            await uploadBytes(storageRef, file);
+            return getDownloadURL(storageRef);
+        }
+
+        async function getTeamMembers() {
+            const docSnap = await getDoc(dbRef);
+            return docSnap.exists() ? docSnap.data()['cards-equipe'] : null;
+        }
+
+        async function updateTeamMembers(members) {
+            await updateDoc(dbRef, { 'cards-equipe': members });
+        }
+
+        function displayAlert(message, isError = false) {
+            console[isError ? 'error' : 'log'](message);
+            alert(message);
+        }
+
+        function setupEditForm(member) {
+            document.getElementById('nome-equipe-edit').value = member.nome;
+            document.getElementById('titulacao-edit').value = member.titulacao;
+            document.getElementById('preview-retrato-equipe-edit').src = member.imagem;
+            document.getElementById('preview-retrato-equipe-edit').style.display = 'block';
+            document.getElementById('nome-equipe-edit').disabled = false;
+            document.getElementById('titulacao-edit').disabled = false;
+            document.getElementById('label-retrato-equipe-edit').style.display = 'block';
+        }
+
+        /***************/
+        /*EVENT LISTENERS*/
+        /***************/
+
+        /*****************************************************************/
+        /*****************************************************************/
+        // Adicionar membro à equipe
+        /*****************************************************************/
+        /*****************************************************************/
+
+        document.getElementById("adicionar-equipe").addEventListener("click", async () => {
+            console.log("Botão clicado!");
+
+            const nome = getFieldValue("nome-equipe");
+            const titulacao = getFieldValue("titulacao");
+            const file = getFileInput("retrato-equipe");
+
+            if (!nome || !titulacao || !file) {
+                displayAlert("Preencha todos os campos e selecione uma imagem!");
+                return;
+            }
+
+            try {
+                const imageUrl = await uploadImage(file);
+                const novoMembro = { nome, titulacao, imagem: imageUrl };
+                const members = (await getTeamMembers()) || [];
+                members.push(novoMembro);
+                await updateTeamMembers(members);
+                displayAlert("Membro da equipe adicionado com sucesso!");
+                window.location.reload();
+            } catch (error) {
+                displayAlert("Erro ao adicionar membro da equipe. Tente novamente mais tarde.", true);
+            }
+        });
+
+        /*****************************************************************/
+        /*****************************************************************/
+        // Carregar membros existentes para edição
+        /*****************************************************************/
+        /*****************************************************************/
+
+        document.getElementById('menu-lateral-editar-equipe').addEventListener('click', async () => {
+            const select = document.getElementById('select-equipe-existente');
+            try {
+                const members = await getTeamMembers();
+                if (members) {
+                    select.innerHTML = '<option value="none">Selecione um membro para editar</option>';
+                    members.forEach((member, index) => {
+                        const option = document.createElement('option');
+                        option.value = index;
+                        option.textContent = member.nome;
+                        select.appendChild(option);
+                    });
+                } else {
+                    displayAlert('Nenhum membro da equipe encontrado.');
+                }
+            } catch (error) {
+                displayAlert('Erro ao carregar membros da equipe. Tente novamente mais tarde.', true);
+            }
+        });
+
+        /*****************************************************************/
+        /*****************************************************************/
+        // Carregar membros existentes para REMOÇÃO
+        /*****************************************************************/
+        /*****************************************************************/
+
+        document.getElementById('menu-lateral-remover-equipe').addEventListener('click', async () => {
+            const select = document.getElementById('select-equipe-existente-remover');
+            try {
+                const members = await getTeamMembers();
+                if (members) {
+                    select.innerHTML = '<option value="none">Selecione um membro para remover</option>';
+                    members.forEach((member, index) => {
+                        const option = document.createElement('option');
+                        option.value = index;
+                        option.textContent = member.nome;
+                        select.appendChild(option);
+                    });
+                } else {
+                    displayAlert('Nenhum membro da equipe encontrado.');
+                }
+            } catch (error) {
+                displayAlert('Erro ao carregar membros da equipe. Tente novamente mais tarde.', true);
+            }
+        });
+
+        /*****************************************************************/
+        /*****************************************************************/
+        // Carregar dados do membro selecionado para edição
+        /*****************************************************************/
+        /*****************************************************************/
+
+        document.getElementById('carregar-dados-pessoa').addEventListener('click', async () => {
+            const select = document.getElementById('select-equipe-existente');
+            const index = select.value;
+
+            if (index === 'none') {
+                displayAlert('Por favor, selecione um membro para editar.');
+                return;
+            }
+
+            try {
+                const members = await getTeamMembers();
+                if (members) {
+                    const member = members[index];
+                    setupEditForm(member);
+                } else {
+                    displayAlert('Documento não encontrado!');
+                }
+            } catch (error) {
+                displayAlert('Erro ao carregar dados do membro. Tente novamente mais tarde.', true);
+            }
+        });
+        /*********************************************/
+        /*********************************************/
+        /******* Salvar edição do membro da equipe*****/
+        /*********************************************/
+        /*********************************************/
+
+        document.getElementById('salvar-edicao-equipe').addEventListener('click', async () => {
+            const select = document.getElementById('select-equipe-existente');
+            const index = select.value;
+
+            if (index === 'none') {
+                displayAlert('Por favor, selecione um membro para editar.');
+                return;
+            }
+
+            const nomeEditado = getFieldValue('nome-equipe-edit');
+            const titulacaoEditada = getFieldValue('titulacao-edit');
+            const file = getFileInput('retrato-equipe-edit');
+
+            try {
+                const members = await getTeamMembers();
+                if (members) {
+                    let imageUrl = members[index].imagem;
+                    if (file) {
+                        imageUrl = await uploadImage(file);
+                    }
+                    const membroEditado = { ...members[index], nome: nomeEditado, titulacao: titulacaoEditada, imagem: imageUrl };
+                    members[index] = membroEditado;
+                    await updateTeamMembers(members);
+                    displayAlert('Membro da equipe editado com sucesso!');
+                    window.location.reload();
+                } else {
+                    displayAlert('Documento não encontrado!');
+                }
+            } catch (error) {
+                displayAlert('Erro ao editar membro da equipe. Tente novamente mais tarde.', true);
+            }
+        });
+
+        /*********************************************/
+        /********** Remover membro da equipe *********/
+        /*********************************************/
+        document.getElementById('remover-equipe').addEventListener('click', async () => {
+            const select = document.getElementById('select-equipe-existente-remover');
+            const index = select.value;
+
+            if (index === 'none') {
+                displayAlert('Por favor, selecione um membro para remover.');
+                return;
+            }
+
+            try {
+                const members = await getTeamMembers();
+                if (members) {
+                    members.splice(index, 1);
+                    await updateTeamMembers(members);
+                    displayAlert('Membro da equipe removido com sucesso!');
+                    window.location.reload();
+                } else {
+                    displayAlert('Documento não encontrado!');
+                }
+            } catch (error) {
+                displayAlert('Erro ao remover membro da equipe. Tente novamente mais tarde.', true);
+            }
+        });
+
+
+
+
+
+
+    </script>
+
+
 
 </body>
 
