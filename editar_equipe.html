@@ -26,7 +26,11 @@
             </header>
             <div class="content-wrapper">
                 <style>
-                    input#nome-equipe, input#nome-equipe-edit {
+                    input#nome-equipe,
+                    input#nome-equipe-edit,
+                    input#nome-validacao,
+                    input#profissao-validacao,
+                    input#nome-card-edit {
                         padding: 1%;
                         width: 55%;
                     }
@@ -37,13 +41,28 @@
                     }
 
                     textarea#titulacao,
-                    textarea#titulacao-edit {
+                    textarea#titulacao-edit,
+                    textarea#comentario,
+                    textarea#comentario-edit {
                         margin-bottom: 1%;
                         resize: none;
 
                     }
 
-                    #adicionar-equipe {
+                    #adicionar-equipe,
+                    #salvar-edicao-equipe,
+                    #adicionar-validacao,
+                    #remover-equipe,
+                    #carregar-dados-pessoa,
+                    #adicionar-equipe-edit,
+                    #adicionar-validacao-edit,
+                    #remover-equipe-edit,
+                    #carregar-dados-pessoa-edit,
+                    #adicionar-equipe-validacao-edit,
+                    #adicionar-validacao-validacao-edit,
+                    #remover-equipe-validacao-edit,
+                    #carregar-dados-pessoa-validacao-edit,
+                    #adicionar-card-validacao {
                         padding: 1%;
                         width: 25%;
                         background-color: #000;
@@ -52,21 +71,37 @@
                         border-radius: 5px;
                     }
 
-                    #adicionar-equipe:hover {
+                    #adicionar-equipe:hover,
+                    #salvar-edicao-equipe:hover,
+                    #adicionar-validacao:hover,
+                    #remover-equipe:hover,
+                    #carregar-dados-pessoa:hover,
+                    #adicionar-equipe-edit:hover,
+                    #adicionar-validacao-edit:hover,
+                    #remover-equipe-edit:hover,
+                    #carregar-dados-pessoa-edit:hover,
+                    #adicionar-equipe-validacao-edit:hover,
+                    #adicionar-validacao-validacao-edit:hover,
+                    #remover-equipe-validacao-edit:hover,
+                    #carregar-dados-pessoa-validacao-edit:hover {
+
                         background-color: #fff;
                         color: #000;
                         border: 1px solid #000;
                     }
 
                     #area-retrato,
-                    #area-retrato-edit {
+                    #area-retrato-edit,
+                    #area-retrato-validacao {
                         display: flex;
                         justify-content: center;
                         flex-direction: column;
                     }
 
                     label#label-retrato-equipe,
-                    label#label-retrato-equipe-edit {
+                    label#label-retrato-equipe-edit,
+                    label#label-retrato-validacao,
+                    label#label-retrato-card-edit {
                         width: 70%;
                         padding: 1%;
                         margin: 0 auto;
@@ -81,7 +116,9 @@
                     }
 
                     label#label-retrato-equipe:hover,
-                    label#label-retrato-equipe-edit:hover {
+                    label#label-retrato-equipe-edit:hover,
+                    label#label-retrato-validacao:hover,
+                    label#label-retrato-card-edit:hover {
                         background-color: #fff;
                         color: #000;
                         border: 1px solid #000;
@@ -91,12 +128,16 @@
 
 
                     input#retrato-equipe,
-                    input#retrato-equipe-edit {
+                    input#retrato-equipe-edit,
+                    input#retrato-validacao,
+                    input#retrato-card-edit {
                         display: none;
                     }
 
                     #preview-retrato-equipe,
-                    #preview-retrato-equipe-edit {
+                    #preview-retrato-equipe-edit,
+                    #preview-retrato-validacao,
+                    #preview-retrato-card-edit {
                         padding: 1%;
                         margin: 0 auto;
                         border-radius: 15px;
@@ -122,58 +163,58 @@
                 </style>
 
 
-                <div class="box-painel" id="display-remover-equipe">
-                    <div id="div-remover-equipe">
+                <div class="box-painel" id="display-remover-card-validacao">
+                    <div id="div-remover-card">
                         <div class="box-edit row">
                             <div class="column">
-                                <h2>Remoção de membro da equipe</h2>
-                                <p>Aqui você pode remover membros que compõe a coletiva</p>
-                                <select class="selects"  name="select-equipe-existente" id="select-equipe-existente-remover">
+                                <h2>Remoção de Card de validação</h2>
+                                <p>Aqui você pode remover cards de validação da landing page</p>
+                                <select class="selects" name="select-card-existente"
+                                    id="select-card-existente-remover">
                                     <option value="none">Selecine um membro para remover</option>
                                 </select>
-                                <button id="remover-equipe">Remover</button>
+                                <button id="remover-card">Remover</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
-                <div class="box-painel" id="display-editar-equipe">
-                    <div id="div-editar-equipe">
+                <div class="box-painel" id="display-editar-card-validacao">
+                    <div id="div-editar-validacao">
                         <dov class="box-edit row">
                             <div class="column">
 
                                 <h2>
-                                    Edição de membro da equipe
+                                    Edição de card de validação
                                 </h2>
                                 <p>
-                                    Aqui você pode editar membros que compõe a coletiva
+                                    Aqui você pode editar os cards de validação
                                 </p>
 
-                                <select class="selects" name="select-equipe-existente" id="select-equipe-existente">
-                                    <option value="none">Selecine um membro para editar</option>
+                                <select class="selects" name="select-validacao-existente"
+                                    id="select-validacao-existente">
+                                    <option value="none">Selecine um card para editar</option>
                                 </select>
 
-                                <button id="carregar-dados-pessoa">Carregar Dados da pessoa</button>
+                                <button id="carregar-dados-card">Carregar Dados do card</button>
 
                                 <div class="form-group">
-                                    <input type="text" name="nome-equipe" id="nome-equipe-edit"
-                                        placeholder="Nome da pessoa" disabled="true">
-                                    <textarea name="titulacao" id="titulacao-edit" cols="70" rows="10"
-                                        placeholder="Titulação da pessoa" disabled="true"></textarea>
-                                    <button id="salvar-edicao-equipe">Salvar Edição</button>
+                                    <input type="text" name="nome-card" id="nome-card-edit" placeholder="Nome da pessoa"
+                                        disabled="true">
+                                    <input type="text" name="profissao" id="profissao-card-edit"
+                                        placeholder="Profissão da pessoa" disabled="true">
+                                    <textarea name="comentario" id="comentario-edit" cols="70" rows="10"
+                                        placeholder="Comentario da pessoa" disabled="true"></textarea>
+                                    <button id="salvar-edicao-card">Salvar Edição</button>
                                 </div>
 
                             </div>
 
                             <div id="area-retrato">
                                 <h4>Foto do perfil</h4>
-                                <img id="preview-retrato-equipe-edit" alt="Preview da foto de perfil"
-                                    style="width: 145px; height: 189px; display: none;" />
-                                <label id="label-retrato-equipe-edit" style="display: none;">
-                                    <input type="file" name="retrato-equipe" id="retrato-equipe-edit"
-                                        accept=".jpg, .png">
+                                <img id="preview-retrato-card-edit" alt="Preview da foto de perfil"
+                                    style="width: 100px; height: 100px; display: none; border-radius: 50%;" />
+                                <label id="label-retrato-card-edit" style="display: none;">
+                                    <input type="file" name="retrato-card" id="retrato-card-edit" accept=".jpg, .png">
                                     Selecionar Foto de Perfil
                                 </label>
                             </div>
@@ -181,58 +222,147 @@
                     </div>
                 </div>
 
-                <div class="box-painel" id="display-add-equipe">
-
-                    <div id="div-add-equipe">
+                <div class="box-painel" id="display-add-card-validacao">
+                    <div id="div-add-card-validacao">
                         <div class="box-edit row">
                             <div class="column">
-                                <h2>Adição de membro da equipe</h2>
-                                <p>Aqui você pode adicionar novos membros que compõe a coletiva</p>
+                                <h2>Adição de cards de validação</h2>
+                                <p>Aqui você pode adicionar novos cards de validação</p>
+
                                 <div class="form-group">
-                                    <input type="text" name="nome-equipe" id="nome-equipe" placeholder="Nome da pessoa">
-                                    <textarea name="titulacao" id="titulacao" cols="70" rows="10"
-                                        placeholder="Titulação da pessoa"></textarea>
-                                    <button id="adicionar-equipe">Adicionar</button>
+                                    <input type="text" name="nome-validacao" id="nome-validacao"
+                                        placeholder="Nome da pessoa">
+                                    <input type="text" name="profissao" id="profissao-validacao"
+                                        placeholder="Profissão da pessoa">
+                                    <textarea name="comentario" id="comentario" cols="70" rows="10"
+                                        placeholder="Comentario da pessoa"></textarea>
+                                    <button id="adicionar-validacao">Adicionar</button>
                                 </div>
                             </div>
                             <div id="area-retrato">
-                                <label id="label-retrato-equipe">
-                                    <input type="file" name="retrato-equipe" id="retrato-equipe" accept=".jpg, .png">
+                                <label id="label-retrato-validacao">
+                                    <input type="file" name="retrato-validacao" id="retrato-validacao"
+                                        accept=".jpg, .png">
                                     Selecionar Foto de Perfil
                                 </label>
-                                <img id="preview-retrato-equipe" alt="Preview da foto de perfil"
-                                    style="width: 145px; height: 189px; display: none;" />
+                                <img id="preview-retrato-validacao" alt="Preview da foto de validacao"
+                                    style="width: 100px; height: 100px; display: none; border-radius: 50%;" />
                             </div>
-
-
                         </div>
                     </div>
                 </div>
+            </div>
 
-
-
-
-                <div class="menu-lateral" id="menu-editar-equipe">
-                    <div class="menu-lateral-item" id="menu-lateral-add-equipe">Add Equipe</div>
-                    <div class="menu-lateral-item" id="menu-lateral-editar-equipe">Editar Equipe</div>
-                    <div class="menu-lateral-item" id="menu-lateral-remover-equipe">Remover Equipe</div>
-                </div>
-                <div class="menu-lateral" id="menu-editar-validacao">
-                    <div class="menu-lateral-item" id="menu-lateral-add-card-validacao">Add Validação</div>
-                    <div class="menu-lateral-item" id="menu-lateral-editar-card-validacao">Editar Validação</div>
-                    <div class="menu-lateral-item" id="menu-lateral-remover-card-validacao">Remover Validação</div>
-                </div>
-                <div class="logouticon">
-                    <svg id="logout-button" width="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <g>
-                            <path fill="none" d="M0 0h24v24H0z" />
-                            <path
-                                d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5zm10-6l5-4-5-4v3H9v2h6v3z" />
-                        </g>
-                    </svg>
+            <div class="box-painel" id="display-remover-equipe">
+                <div id="div-remover-equipe">
+                    <div class="box-edit row">
+                        <div class="column">
+                            <h2>Remoção de membro da equipe</h2>
+                            <p>Aqui você pode remover membros que compõe a coletiva</p>
+                            <select class="selects" name="select-equipe-existente" id="select-equipe-existente-remover">
+                                <option value="none">Selecine um membro para remover</option>
+                            </select>
+                            <button id="remover-equipe">Remover</button>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
+
+            <div class="box-painel" id="display-editar-equipe">
+                <div id="div-editar-equipe">
+                    <dov class="box-edit row">
+                        <div class="column">
+
+                            <h2>
+                                Edição de membro da equipe
+                            </h2>
+                            <p>
+                                Aqui você pode editar membros que compõe a coletiva
+                            </p>
+
+                            <select class="selects" name="select-equipe-existente" id="select-equipe-existente">
+                                <option value="none">Selecine um membro para editar</option>
+                            </select>
+
+                            <button id="carregar-dados-pessoa">Carregar Dados da pessoa</button>
+
+                            <div class="form-group">
+                                <input type="text" name="nome-equipe" id="nome-equipe-edit" placeholder="Nome da pessoa"
+                                    disabled="true">
+                                <textarea name="titulacao" id="titulacao-edit" cols="70" rows="10"
+                                    placeholder="Titulação da pessoa" disabled="true"></textarea>
+                                <button id="salvar-edicao-equipe">Salvar Edição</button>
+                            </div>
+
+                        </div>
+
+                        <div id="area-retrato">
+                            <h4>Foto do perfil</h4>
+                            <img id="preview-retrato-equipe-edit" alt="Preview da foto de perfil"
+                                style="width: 145px; height: 189px; display: none;" />
+                            <label id="label-retrato-equipe-edit" style="display: none;">
+                                <input type="file" name="retrato-equipe" id="retrato-equipe-edit" accept=".jpg, .png">
+                                Selecionar Foto de Perfil
+                            </label>
+                        </div>
+                    </dov>
+                </div>
+            </div>
+
+            <div class="box-painel" id="display-add-equipe">
+
+                <div id="div-add-equipe">
+                    <div class="box-edit row">
+                        <div class="column">
+                            <h2>Adição de membro da equipe</h2>
+                            <p>Aqui você pode adicionar novos membros que compõe a coletiva</p>
+                            <div class="form-group">
+                                <input type="text" name="nome-equipe" id="nome-equipe" placeholder="Nome da pessoa">
+                                <textarea name="titulacao" id="titulacao" cols="70" rows="10"
+                                    placeholder="Titulação da pessoa"></textarea>
+                                <button id="adicionar-equipe">Adicionar</button>
+                            </div>
+                        </div>
+                        <div id="area-retrato">
+                            <label id="label-retrato-equipe">
+                                <input type="file" name="retrato-equipe" id="retrato-equipe" accept=".jpg, .png">
+                                Selecionar Foto de Perfil
+                            </label>
+                            <img id="preview-retrato-equipe" alt="Preview da foto de perfil"
+                                style="width: 145px; height: 189px; display: none;" />
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <div class="menu-lateral" id="menu-editar-equipe">
+                <div class="menu-lateral-item" id="menu-lateral-add-equipe">Add Equipe</div>
+                <div class="menu-lateral-item" id="menu-lateral-editar-equipe">Editar Equipe</div>
+                <div class="menu-lateral-item" id="menu-lateral-remover-equipe">Remover Equipe</div>
+            </div>
+            <div class="menu-lateral" id="menu-editar-validacao">
+                <div class="menu-lateral-item" id="menu-lateral-add-card-validacao">Add Validação</div>
+                <div class="menu-lateral-item" id="menu-lateral-editar-card-validacao">Editar Validação</div>
+                <div class="menu-lateral-item" id="menu-lateral-remover-card-validacao">Remover Validação</div>
+            </div>
+            <div class="logouticon">
+                <svg id="logout-button" width="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                            d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5zm10-6l5-4-5-4v3H9v2h6v3z" />
+                    </g>
+                </svg>
+            </div>
         </div>
+    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -241,9 +371,9 @@
     <script src="scripts/script-editar-equipe.js" type="module"></script>
     <script src="scripts/script.js" type="module"></script>
 
-    
 
-       
+
+
     </script>
 
 
