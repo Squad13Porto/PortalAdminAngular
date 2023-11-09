@@ -4,6 +4,13 @@ import { getDocs, arrayUnion, db, addDoc, collection, getDoc, updateDoc, doc, ge
 /***************/
 /*NAVGEGAÇÃO ENTRE TELAS*/
 /***************/
+
+/*            <div class="menu-lateral" id="menu-editar-diversos">
+                <div class="menu-lateral-item" id="menu-lateral-link-conteudo">Alterar link video</div>
+                <div class="menu-lateral-item" id="menu-lateral-img-comunidade">Imagem da comunidade</div>
+                <div class="menu-lateral-item" id="menu-lateral-img-forum">Imagem do forum</div>
+            </div>
+            */
 document.addEventListener('DOMContentLoaded', function () {
     const secoes = {
         'menu-lateral-add-equipe': 'display-add-equipe',
@@ -11,7 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
         'menu-lateral-remover-equipe': 'display-remover-equipe',
         'menu-lateral-add-card-validacao': 'display-add-card-validacao',
         'menu-lateral-editar-card-validacao': 'display-editar-card-validacao',
-        'menu-lateral-remover-card-validacao': 'display-remover-card-validacao'
+        'menu-lateral-remover-card-validacao': 'display-remover-card-validacao',
+        'menu-lateral-link-conteudo': 'display-link-conteudo',
+        'menu-lateral-img-comunidade': 'display-img-comunidade',
+        'menu-lateral-img-forum': 'display-img-forum'
     };
 
     Object.keys(secoes).forEach(function (menuId) {
@@ -49,6 +59,8 @@ document.getElementById('retrato-equipe').addEventListener('change', previewImag
 document.getElementById('retrato-equipe-edit').addEventListener('change', previewImage('retrato-equipe-edit', 'preview-retrato-equipe-edit'));
 document.getElementById('retrato-validacao').addEventListener('change', previewImage('retrato-validacao', 'preview-retrato-validacao'));
 document.getElementById('retrato-card-edit').addEventListener('change', previewImage('retrato-card-edit', 'preview-retrato-card-edit'));
+document.getElementById('img-comunidade').addEventListener('change', previewImage('label-img-comunidade', 'preview-img-comunidade'));
+document.getElementById('img-forum').addEventListener('change', previewImage('label-img-forum', 'preview-img-forum'));
 
 /***************/
 /*REFERÊNCIAS AO BANCO DE DADOS E STORAGE*/
@@ -98,18 +110,7 @@ function extrairNomeImagem(url) {
 }
 
 
-async function removerImagem(nomeImagem, caminhoBaseImagem) {
-    if (!nomeImagem) return;
 
-
-    const imagemRef = ref(storageRef, `${caminhoBaseImagem}/${nomeImagem}`);
-    try {
-        await deleteObject(imagemRef);
-        console.log('Imagem deletada com sucesso!');
-    } catch (error) {
-        console.error('Erro ao deletar imagem:', error);
-    }
-}
 
 
 function setupEditForm(type, data) {
@@ -133,7 +134,6 @@ function setupEditForm(type, data) {
         document.getElementById('label-retrato-card-edit').style.display = 'block';
     }
 }
-
 function getEditFormData(type) {
     if (type === 'membro') {
         return {
@@ -150,7 +150,18 @@ function getEditFormData(type) {
         };
     }
 }
+async function removerImagem(nomeImagem, caminhoBaseImagem) {
+    if (!nomeImagem) return;
 
+
+    const imagemRef = ref(storageRef, `${caminhoBaseImagem}/${nomeImagem}`);
+    try {
+        await deleteObject(imagemRef);
+        console.log('Imagem deletada com sucesso!');
+    } catch (error) {
+        console.error('Erro ao deletar imagem:', error);
+    }
+}
 
 
 /***************/
@@ -319,13 +330,13 @@ async function salvarEdicao(idButton, idSelect, colecaoDB, type, pathImagem) {
                 let itemAntigo = items[index];
                 let imageUrl = itemAntigo.imagem;
 
-                if (formData.imagem) { // Se uma nova imagem foi fornecida
-                    // Primeiro, remover a imagem antiga se existir
+                if (formData.imagem) {
+
                     if (itemAntigo.imagem) {
                         const nomeImagemAntiga = extrairNomeImagem(itemAntigo.imagem);
                         await removerImagem(nomeImagemAntiga, pathImagem);
                     }
-                    // Fazer o upload da nova imagem
+
                     imageUrl = await uploadImage(storageRef, pathImagem, formData.imagem);
                 }
 
@@ -348,6 +359,8 @@ async function salvarEdicao(idButton, idSelect, colecaoDB, type, pathImagem) {
 // Salvar edição do membro da equipe
 salvarEdicao('salvar-edicao-equipe', 'select-equipe-existente', 'cards-equipe', 'membro', 'cards-equipe');
 
+
+
 // Salvar edição do card de validação
 salvarEdicao('salvar-edicao-card', 'select-validacao-existente', 'cards-validacao', 'card', 'cards-validacao');
 
@@ -361,7 +374,7 @@ salvarEdicao('salvar-edicao-card', 'select-validacao-existente', 'cards-validaca
 // Função atualizada para remover um item e sua imagem associada
 async function removerItemEImagem(idButton, idSelect, colecaoDB, tipoItem, caminhoBaseImagem) {
     document.getElementById(idButton).addEventListener('click', async () => {
-        //idButton ativar propriedade disabled
+
         document.getElementById(idButton).disabled = true;
         const select = document.getElementById(idSelect);
         const index = select.value;
@@ -397,8 +410,103 @@ async function removerItemEImagem(idButton, idSelect, colecaoDB, tipoItem, camin
     });
 }
 
-// Exemplo de uso para remover um membro da equipe
+
 removerItemEImagem('remover-equipe', 'select-equipe-existente-remover', 'cards-equipe', 'membro', 'cards-equipe');
 
-// Exemplo de uso para remover um card de validação
+
 removerItemEImagem('remover-card', 'select-card-existente-remover', 'cards-validacao', 'card', 'cards-validacao');
+
+
+/*********************************************/
+/********** Atualizar link do video do nosso conteudo *********/
+/*********************************************/
+
+
+async function enviarLinkYoutube() {
+    const linkInput = document.getElementById('link-youtube');
+    const linkYoutube = linkInput.value;
+
+    if (linkYoutube) {
+        try {
+
+            const docRef = doc(db, 'outros-itens-landing-page', 'link-nosso-conteudo');
+
+            await updateDoc(docRef, {
+                linkYoutube: linkYoutube
+            });
+            alert('Link do YouTube atualizado com sucesso!');
+        } catch (error) {
+            alert('Erro ao atualizar o link do YouTube:', error);
+        }
+    } else {
+        alert('Nenhum link do YouTube fornecido!');
+    }
+}
+
+
+const editarLinkButton = document.getElementById('editar-link-youtube');
+editarLinkButton.addEventListener('click', enviarLinkYoutube);
+
+
+/*********************************************/
+/********** Atualizar imagens da comunidade e forum *********/
+/*********************************************/
+async function removerTodasImagens(caminhoBaseImagem) {
+    const listRef = ref(storage, caminhoBaseImagem);
+
+    try {
+        const res = await listAll(listRef);
+        for (const fileRef of res.items) {
+            await deleteObject(fileRef);
+        }
+    } catch (error) {
+        console.error('Erro ao listar ou excluir imagens:', error);
+    }
+}
+
+async function editarImagem(event, tipo) {
+    event.preventDefault();
+
+    const config = {
+        'comunidade': {
+            inputId: 'img-comunidade',
+            previewId: 'preview-img-comunidade',
+            caminhoBaseImagem: 'img-comunidade',
+            nomeImagem: 'comunidade.jpg'
+        },
+        'forum': {
+            inputId: 'img-forum',
+            previewId: 'preview-img-forum',
+            caminhoBaseImagem: 'img-forum',
+            nomeImagem: 'forum.jpg'
+        }
+    };
+
+    const { inputId, previewId, caminhoBaseImagem, nomeImagem } = config[tipo];
+    const fileInput = document.getElementById(inputId);
+    const fileList = fileInput.files;
+
+    if (fileList.length > 0) {
+        const imagem = fileList[0];
+        await removerTodasImagens(caminhoBaseImagem);
+        const nomeParaNovaImagem = nomeImagem;
+        const novaImagemRef = ref(storage, `${caminhoBaseImagem}/${nomeParaNovaImagem}`);
+
+        try {
+            await uploadBytes(novaImagemRef, imagem);
+            alert('Nova imagem enviada com sucesso!');
+            const downloadURL = await getDownloadURL(novaImagemRef);
+            console.log(`URL da imagem: ${downloadURL}`);
+            const previewImage = document.getElementById(previewId);
+            previewImage.src = downloadURL;
+            previewImage.style.display = 'block';
+        } catch (error) {
+            console.error('Erro ao enviar a nova imagem:', error);
+        }
+    } else {
+        alert('Nenhum arquivo selecionado para upload.');
+    }
+}
+
+document.getElementById('editar-img-comunidade').addEventListener('click', (event) => editarImagem(event, 'comunidade'));
+document.getElementById('editar-img-forum').addEventListener('click', (event) => editarImagem(event, 'forum'));
