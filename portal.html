@@ -6,13 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Coletiva</title>
     <link rel="stylesheet" href="style/style.css">
-    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2TCT9J5R3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-L2TCT9J5R3');
+    </script>
 </head>
 
 <body>
     <div class="container-coletiva">
         <div class="box-dashboard">
-            
+
             <header>
                 <span class="brand"><img src="assets/img/ÍCONE_PRETO.png" alt="Logo da Coletiva"></span>
                 <nav>
@@ -25,7 +36,7 @@
 
                 </nav>
             </header>
-            
+
             <div class="logouticon">
                 <svg id="logout-button" width="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <g>
@@ -40,7 +51,8 @@
     <script src="scripts/checkauth.js" type="module"></script>
     <script src="scripts/script.js" type="module"></script>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 </body>
 

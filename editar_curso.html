@@ -6,7 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Coletiva</title>
     <link rel="stylesheet" href="style/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2TCT9J5R3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-L2TCT9J5R3');
+    </script>
 </head>
+
 <body>
     <div class="container-coletiva">
         <div class="box-dashboard">
@@ -32,7 +45,7 @@
                 <h4>Criação de cards de evidência.</h4>
                 <div class="primeiro-bloco">
                     <div>
-                        
+
                     </div>
                     <div class="text-aluno">
                         <input class="text-nome-aluno" type="text" placeholder="Nome do aluno">
@@ -40,31 +53,39 @@
                     </div>
                     <div class="text-evidencias">
                         <h5>Evidência Cadastradas (Max: 8)</h5>
-                        <textarea name="Evidencia-cadastradas" id="Evidencia-cadastradas" class="Evidencia-cadastradas" cols="4" rows="8"></textarea>
+                        <textarea name="Evidencia-cadastradas" id="Evidencia-cadastradas" class="Evidencia-cadastradas"
+                            cols="4" rows="8"></textarea>
                     </div>
                 </div>
                 <div class="area-botao">
-                    <input class="botao-mais-menos" type="image" src="/assets/img/plus-circle-svgrepo-com 1.png" alt="botão adicionar evidência">
-                    <input class="botao-mais-menos" type="image" src="/assets/img/subtract-round-svgrepo-com 3.png" alt="botão remover evidência">
+                    <input class="botao-mais-menos" type="image" src="/assets/img/plus-circle-svgrepo-com 1.png"
+                        alt="botão adicionar evidência">
+                    <input class="botao-mais-menos" type="image" src="/assets/img/subtract-round-svgrepo-com 3.png"
+                        alt="botão remover evidência">
                 </div>
                 <div class="segundo-bloco">
                     <div class="area-pertencimento-oqueVaiAprender">
-                        <textarea name="pertencimento" id="pertencimento" class="pertencimento" cols="4" rows="8" placeholder="Pertencimento (Máx 210 caracteres)"></textarea>
-                        <textarea name="oqueVaiAprender" id="oqueVaiAprender" class="oqueVaiAprender" cols="4" rows="8" placeholder="O que você irá aprender aqui (Máx 120 caracteres e 8 itens)"></textarea>
+                        <textarea name="pertencimento" id="pertencimento" class="pertencimento" cols="4" rows="8"
+                            placeholder="Pertencimento (Máx 210 caracteres)"></textarea>
+                        <textarea name="oqueVaiAprender" id="oqueVaiAprender" class="oqueVaiAprender" cols="4" rows="8"
+                            placeholder="O que você irá aprender aqui (Máx 120 caracteres e 8 itens)"></textarea>
                         <div class="area-botao2">
-                            <input class="botao-mais-menos" type="image" src="/assets/img/plus-circle-svgrepo-com 1.png" alt="botão adicionar evidência">
-                            <input class="botao-mais-menos" type="image" src="/assets/img/subtract-round-svgrepo-com 3.png" alt="botão remover evidência">
+                            <input class="botao-mais-menos" type="image" src="/assets/img/plus-circle-svgrepo-com 1.png"
+                                alt="botão adicionar evidência">
+                            <input class="botao-mais-menos" type="image"
+                                src="/assets/img/subtract-round-svgrepo-com 3.png" alt="botão remover evidência">
                         </div>
                     </div>
                     <div class="area-solucao">
-                        <textarea class="solucao" name="solucao" id="solucao" cols="4" rows="8" placeholder="Solução (Máx 210 caracteres)"></textarea>
+                        <textarea class="solucao" name="solucao" id="solucao" cols="4" rows="8"
+                            placeholder="Solução (Máx 210 caracteres)"></textarea>
                         <input class="link-video" type="text" placeholder="Link do video da Solução">
                         <input class="horas-certificado" type="text" placeholder="Horas do certificado">
                         <div class="Qtd-aulas-modulos">
                             <input class="qtd-aulas" type="text" placeholder="Qtd aulas">
                             <input class="qtd-modulos" type="text" placeholder="Qtd modulos">
                         </div>
-                    </div> 
+                    </div>
                 </div>
                 <div class="area-lista-itens">
                     <select class="lista-itens" name="lista-itens" id="lista-itens">
@@ -86,4 +107,5 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="scripts/script.js" type="module"></script>
 </body>
+
 </html>

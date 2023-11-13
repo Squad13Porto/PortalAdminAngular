@@ -6,12 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Coletiva</title>
     <link rel="stylesheet" href="style/style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2TCT9J5R3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-L2TCT9J5R3');
+    </script>
 </head>
 
 <body>
     <div class="container-coletiva">
         <div class="box-dashboard">
-            
+
             <header>
                 <span class="brand"><img src="assets/img/ÍCONE_PRETO.png" alt="Logo da Coletiva"></span>
                 <nav>
@@ -33,7 +45,8 @@
                             <h2>Remoção de imagens nos carrosseis</h2>
                             <p>Aqui você pode remover imagens de aulas nos carrosseis de aulas abertas e
                                 pilulas</p>
-                            <div class="form-group"> <!-- Container adicionado -->
+                            <div class="form-group">
+                                <!-- Container adicionado -->
                                 <select class="selects" name="select-carrossel" id="select-carrossel-remover">
                                     <option value="0">Selecione um carrossell</option>
                                     <option value="aulas-abertas">Aulas Abertas</option>
@@ -55,7 +68,8 @@
                             <h2>Adição de imagens nos carrosseis</h2>
                             <p>Aqui você pode inserir novas imagens de aulas nos carrosseis de aulas abertas e
                                 pilulas</p>
-                            <div class="form-group"> <!-- Container adicionado -->
+                            <div class="form-group">
+                                <!-- Container adicionado -->
                                 <select class="selects" name="select-carrossel" id="select-carrossel">
                                     <option value="0">Selecione um carrossell</option>
                                     <option value="aulas-abertas">Aulas Abertas</option>
@@ -96,11 +110,12 @@
                 </div>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
         <script src="scripts/checkauth.js" type="module"></script>
         <script src="scripts/script.js" type="module"></script>
-        
+
 
 </body>
 
