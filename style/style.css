@@ -386,9 +386,6 @@ div#add-imagens {
     display: none;
 }
 
-
-
-
 .box-edit {
     text-align: center;
 }
@@ -533,6 +530,110 @@ div#add-imagens {
     border-radius: 5px;
     height: 4rem;
     margin-left: 0.7rem;
+}
+
+.first-div {
+    display: flex;
+    width: 100%;   
+}
+
+.evidencia {
+    width: 50%;
+}
+
+.nome-modulo {
+    width: 80%;
+}
+
+.lista-itens-evidencia {
+    width: 86%;
+    height: 100px;
+    margin-left: 0.7rem;
+    border-radius: 5px;
+}
+
+.second-div{
+    display: flex;
+    width: 100%;
+    height: 400px;
+}
+
+.itens-modulos{
+    width: 50%;
+    text-align: center;
+}
+
+.lista-itens-modulos {
+    width: 80%;
+    height: 100px;
+    margin-left: 0.7rem;
+    border-radius: 5px;
+}
+
+.imagem-modulo {
+    background-color: #f0f0f0;
+    width: 237px;
+    height: 237px;
+}
+
+.preco-parcela{
+    display: flex;
+    margin-top: 20px;
+}
+
+.lista-cursos{
+    display: flex;
+    justify-content: center;
+}
+
+.lista-cursos-firebase {
+    width: 80%;
+    height: 300px;
+    position: absolute;
+    top: 25%;
+}
+
+.selecao-carrossel {
+    margin: 2rem;
+    height: 1rem;
+    width: 50%;
+}
+
+.img-carrossel {
+    margin: 2rem;
+    height: 15rem;
+}
+
+.botao-slv-carrossel {
+    padding: 0;
+    background: none;
+    border: none;
+}
+
+.botao-slv-carrossel:hover {
+    box-shadow: 0px 0px 4px #000;
+    border: none;
+}
+
+.cadastro-professor {
+    display: flex;
+    width: 100%;
+}
+
+
+.nome-professor {
+    width: 80%;
+    
+}
+
+.titulacao-professor {
+    width: 80%;
+    height: 5rem;
+}
+
+.add-foto-professor{
+    display: flex;
+    flex-direction: column;
 }
 
 
