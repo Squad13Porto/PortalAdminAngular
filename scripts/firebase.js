@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebas
 import { deleteObject, getStorage, ref, uploadBytes, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-storage.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, browserSessionPersistence, setPersistence } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js";
-import { arrayUnion, getDocs, addDoc, collection, getDoc, updateDoc, doc, getFirestore } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
+import {setDoc, arrayUnion, getDocs, addDoc, collection, getDoc, updateDoc, doc, getFirestore } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js";
 
 
 const firebaseConfig = {
@@ -24,7 +24,7 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 
 
-export { getDocs, arrayUnion, db, addDoc, collection, getDoc, updateDoc, doc, getFirestore, deleteObject, auth, signInWithEmailAndPassword, onAuthStateChanged, browserSessionPersistence, setPersistence, getStorage, ref, uploadBytes, storage, listAll, getDownloadURL };
+export {setDoc, getDocs, arrayUnion, db, addDoc, collection, getDoc, updateDoc, doc, getFirestore, deleteObject, auth, signInWithEmailAndPassword, onAuthStateChanged, browserSessionPersistence, setPersistence, getStorage, ref, uploadBytes, storage, listAll, getDownloadURL };
 
 
 

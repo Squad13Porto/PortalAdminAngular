@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Coletiva</title>
+    <link rel="stylesheet" href="style/style.css">
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-T6TCQ8D2');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2TCT9J5R3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-L2TCT9J5R3');
+    </script>
+</head>
+
+<body>
+    <div class="container-coletiva">
+        <div class="box-dashboard">
+            <header>
+                <span class="brand"><img src="assets/img/ÍCONE_PRETO.png" alt="Logo da Coletiva"></span>
+                <nav>
+                    <div class="navbar">
+                        <span class="nav-item" id="dashboard">Dashboard</span>
+                        <span class="nav-item" id="editar-curso">Editar Cursos</span>
+                        <span class="nav-item" id="editar-carrossel">Editar Carrosseis</span>
+                        <span class="nav-item" id="editar-cards">Editar cards</span>
+                    </div>
+
+                </nav>
+            </header>
+
+            <div class="menu-lateral" id="menu-editar-cursos">
+                <div class="menu-lateral-item">Add Curso</div>
+                <div class="menu-lateral-item">Editar Curso</div>
+                <div class="menu-lateral-item">Remover Curso</div>
+            </div>
+
+
+            <div id="addcurso-frame5" class="box-painel">
+                <button class="navigation" data-target="frame4">Pag Anterior</button>
+                <div class="preco-parcela">
+                    <input type="text" class="preco" placeholder="Preço à vista">
+                    <input type="text" class="parcela" placeholder="Parcela">
+                    <button id="add-curso-novo">Adicionar curso</button>
+                    <button id="teste">teste</button>
+                </div>
+            </div>
+
+
+
+            <div id="addcurso-frame4" class="box-painel">
+                <button class="navigation" data-target="frame3">Pag Anterior</button>
+                <button class="navigation" data-target="frame5">Próxima Pag</button>
+
+                <div class="cadastro-professor">
+                    <div class="professor">
+                        <input type="text" name="nome-professor" id="nome-professor" class="nome-professor"
+                            placeholder="Professor 1">
+                        <input type="text" name="titulacao-professor" id="titulacao-professor"
+                            class="titulacao-professor" placeholder="Titulação professor 1 (max 400 Caracteres)">
+                        <input type="text" name="nome-professor" id="nome-professor" class="nome-professor"
+                            placeholder="Professor 3">
+                        <input type="text" name="titulacao-professor" id="titulacao-professor"
+                            class="titulacao-professor" placeholder="Titulação professor 3 (max 400 Caracteres)">
+                    </div>
+                    <div class="professor">
+                        <input type="text" name="nome-professor" id="nome-professor" class="nome-professor"
+                            placeholder="Professor 2">
+                        <input type="text" name="titulacao-professor" id="titulacao-professor"
+                            class="titulacao-professor" placeholder="Titulação professor 2 (max 400 Caracteres)">
+                        <input type="text" name="nome-professor" id="nome-professor" class="nome-professor"
+                            placeholder="Professor 4">
+                        <input type="text" name="titulacao-professor" id="titulacao-professor"
+                            class="titulacao-professor" placeholder="Titulação professor 4 (max 400 Caracteres)">
+                    </div>
+                </div>
+                <div class="add-foto-professor">
+                    <label for="professor-1">Foto Professor-1 (Max 145 x 192)</label>
+                    <input type="file" id="professor-1" class="foto-professor">
+                    <label for="professor-2">Foto Professor-2 (Max 145 x 192)</label>
+                    <input type="file" id="professor-2" class="foto-professor">
+                    <label for="professor-3">Foto Professor-3 (Max 145 x 192)</label>
+                    <input type="file" id="professor-3" class="foto-professor">
+                    <label for="professor-4">Foto Professor-4 (Max 145 x 192)</label>
+                    <input type="file" id="professor-4" class="foto-professor">
+                </div>
+            </div>
+
+
+            <!--Frame de itens do curso -->
+
+            <div id="addcurso-frame3" class="box-painel">
+                <style>
+                    .navigation {
+                        padding: 10px 20px;
+                    }
+                </style>
+                <button class="navigation" data-target="frame2">Pag Anterior</button>
+                <button class="navigation" data-target="frame4">Próxima Pag</button>
+
+                <h4>Modulos do curso</h4>
+                <div class="first-div">
+                    <div class="evidencia">
+                        <h5>Modulo 1</h5>
+                        <input type="text" id="modulo-1" class="nome-modulo" placeholder="Nome Modulo 1">
+                        <input type="text" name="itens-modulo-1" class="nome-modulo"
+                            placeholder="Itens modulo 1 max 120caracteres" id="itens-modulo-1">
+                        <div>
+                            <input class="botao-mais-menos" type="image" src="/assets/img/plus-circle-svgrepo-com 1.png"
+                                alt="botão adicionar evidência" id="add-img-modulo1">
+                            <input class="botao-mais-menos" type="image" id="rmv-img-modulo1"
+                                src="/assets/img/subtract-round-svgrepo-com 3.png" alt="botão remover evidência">
+                        </div>
+                    </div>
+                    <div class="evidencia">
+                        <h5>Modulo 2</h5>
+                        <input type="text" id="modulo-2" class="nome-modulo" placeholder="Nome Modulo 2">
+                        <input type="text" name="itens-modulo-2" class="nome-modulo"
+                            placeholder="Itens modulo 2 max 120caracteres" id="itens-modulo-2">
+                        <div>
+                            <input class="botao-mais-menos" id="add-img-modulo2" type="image"
+                                src="/assets/img/plus-circle-svgrepo-com 1.png" alt="botão adicionar evidência">
+                            <input class="botao-mais-menos" type="image" id="rmv-img-modulo2"
+                                src="/assets/img/subtract-round-svgrepo-com 3.png" alt="botão remover evidência">
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="second-div">
+                    <div class="itens-modulos">
+                        <h5>MAX 9 ITENS</h5>
+                        <select class="lista-itens-modulos" name="lista-itens-2" id="lista-itens-1">
+                            <Option value="0">Itens modulo 1 max 120caracteres</Option>
+                        </select>
+
+                        <label for="foto-modulo-1">
+                            <h5>Imagem do modulo 1 (237x237)</h5>
+                        </label>
+                        <input type="file" src="" alt="" id="foto-modulo-1" class="">
+                    </div>
+
+                    <div class="itens-modulos">
+                        <h5>MAX 9 ITENS</h5>
+                        <select class="lista-itens-modulos" name="lista-itens-2" id="lista-itens-2">
+                            <Option value="0">Itens modulo 2 max 120caracteres</Option>
+                        </select>
+
+                        <label for="foto-modulo-2">
+                            <h5>Imagem do modulo 2 (237x237)</h5>
+                        </label>
+                        <input type="file" src="" alt="" id="foto-modulo-2" class="">
+                    </div>
+
+
+                </div>
+
+                <div class="first-div">
+                    <div class="evidencia">
+                        <h5>Modulo 3</h5>
+                        <input type="text" id="modulo-3" class="nome-modulo" placeholder="Nome Modulo 3">
+                        <input type="text" name="itens-modulo-3" class="nome-modulo"
+                            placeholder="Itens modulo 3 max 120caracteres" id="itens-modulo-3">
+                        <div>
+                            <input class="botao-mais-menos" id="add-img-modulo3" type="image"
+                                src="/assets/img/plus-circle-svgrepo-com 1.png" alt="botão adicionar evidência">
+                            <input class="botao-mais-menos" type="image" id="rmv-img-modulo3"
+                                src="/assets/img/subtract-round-svgrepo-com 3.png" alt="botão remover evidência">
+                        </div>
+                    </div>
+                    <div class="evidencia">
+                        <h5>Modulo 4</h5>
+                        <input type="text" id="modulo-4" class="nome-modulo" placeholder="Nome Modulo 4">
+                        <input type="text" name="itens-modulo-4" class="nome-modulo"
+                            placeholder="Itens modulo 4 max 120caracteres" id="itens-modulo-4">
+                        <div>
+                            <input class="botao-mais-menos" type="image" src="/assets/img/plus-circle-svgrepo-com 1.png"
+                                alt="botão adicionar evidência" id="add-img-modulo4">
+                            <input class="botao-mais-menos" type="image" id="rmv-img-modulo4"
+                                src="/assets/img/subtract-round-svgrepo-com 3.png" alt="botão remover evidência">
+                        </div>
+                    </div>
+                </div>
+                <div class="second-div">
+                    <div class="itens-modulos">
+                        <h5>MAX 9 ITENS</h5>
+                        <select class="lista-itens-modulos" name="lista-itens-2" id="lista-itens-3">
+                            <Option value="0">Itens modulo 3 max 120caracteres</Option>
+                        </select>
+
+                        <label for="foto-modulo-1">
+                            <h5>Imagem do modulo 3 (237x237)</h5>
+                        </label>
+                        <input type="file" src="" alt="" id="foto-modulo-3" class="">
+                    </div>
+
+                    <div class="itens-modulos">
+                        <h5>MAX 9 ITENS</h5>
+                        <select class="lista-itens-modulos" name="lista-itens-2" id="lista-itens-4">
+                            <Option value="0">Itens modulo 4 max 120caracteres</Option>
+                        </select>
+
+                        <label for="foto-modulo-2">
+                            <h5>Imagem do modulo 4 (237x237)</h5>
+                        </label>
+                        <input type="file" src="" alt="" id="foto-modulo-4" class="">
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <script>
+
+            </script>
+
+
+            <div id="addcurso-frame2" class="box-painel">
+                <button class="navigation" data-target="frame1">Pag Anterior</button>
+                <button class="navigation" data-target="frame3">Próxima Pag</button>
+                <h4>Criação de cards de evidência.</h4>
+                <div class="primeiro-bloco">
+                    <div class="text-aluno">
+                        <input class="text-nome-aluno" type="text" placeholder="Nome do aluno">
+                        <input class="text-comentario-aluno" type="text" placeholder="Comentário do aluno">
+                    </div>
+                    <div class="text-evidencias">
+                        <h5>Evidência Cadastradas (Max: 8)</h5>
+                        <select id="dropdown-evidencias">
+                            <option value="-1">Aqui estará a lista das evidencias cadastradas</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="area-botao">
+                    <input class="botao-mais-menos" type="image" src="/assets/img/plus-circle-svgrepo-com 1.png"
+                        alt="botão adicionar evidência" id="btn-add-evidencia">
+                    <input class="botao-mais-menos" type="image" src="/assets/img/subtract-round-svgrepo-com 3.png"
+                        alt="botão remover evidência" id="btn-rmv-evidencia">
+                </div>
+
+                <script>
+
+                </script>
+
+                <hr>
+                <div class="segundo-bloco">
+                    <div class="area-pertencimento-oqueVaiAprender">
+                        <textarea name="pertencimento" id="pertencimento" class="pertencimento" cols="4" rows="8"
+                            placeholder="Pertencimento (Máx 210 caracteres)"></textarea>
+                        <input name="oqueVaiAprender" id="oqueVaiAprender" class="oqueVaiAprender" cols="4" rows="8"
+                            placeholder="O que você irá aprender aqui (Máx 120 caracteres e 8 itens)">
+                        <div class="area-botao2">
+                            <input class="botao-mais-menos" type="image" src="/assets/img/plus-circle-svgrepo-com 1.png"
+                                alt="botão adicionar evidência" id="btn-add-aprender">
+                            <input class="botao-mais-menos" type="image" id="btn-rmv-aprender"
+                                src="/assets/img/subtract-round-svgrepo-com 3.png" alt="botão remover evidência">
+                        </div>
+                    </div>
+                    <div class="area-solucao">
+                        <textarea class="solucao" name="solucao" id="solucao" cols="4" rows="8"
+                            placeholder="Solução (Máx 210 caracteres)"></textarea>
+                        <input class="link-video" type="text" placeholder="Link do video da Solução">
+                        <input class="horas-certificado" type="text" placeholder="Horas do certificado">
+                        <div class="Qtd-aulas-modulos">
+                            <input class="qtd-aulas" type="text" placeholder="Qtd aulas">
+                            <input class="qtd-modulos" type="text" placeholder="Qtd modulos">
+                        </div>
+                    </div>
+                </div>
+                <div class="area-lista-itens">
+                    <select class="lista-itens" name="lista-itens" id="lista-itens">
+                        <Option value="0">Lista do que irá aprender</Option>
+                    </select>
+                </div>
+            </div>
+
+
+            <script>
+
+            </script>
+
+
+
+            <div id="addcurso-frame1" class="box-painel">
+                <button class="navigation" data-target="frame2">Próxima Pag</button>
+                <div class="identificacao-curso">
+                    <div>
+                        <h5>Identificação do curso</h5>
+                        <div class="sigla-prioridade">
+                            <input type="text" class="sigla" placeholder="Sigla">
+                            <input type="text" class="prioridade" placeholder="Nv de Prioridade">
+                        </div>
+                        <div class="nome-resumo">
+                            <input type="text" class="nome" placeholder="Nome">
+                            <input type="text" class="resumo" placeholder="Resumo">
+                        </div>
+                    </div>
+                    <hr>
+                    <label for="img-segmentacao"><strong>Imagem da segmentacao (679x735)</strong></label>
+                    <br>
+                    <input type="file" name="img crso" placeholder="Imagem da segmentacao (679x735)"
+                        id="img-segmentacao">
+                    <br>
+
+                    <label for="img-do-carrossel"><strong>Imagem do carossel</strong></label>
+                    <br>
+                    <input type="file" name="img-do-carrossel" id="img-do-carrossel" placeholder="Imagem do carossel">
+
+                </div>
+
+                <div class="informacao-curso">
+                    <h5>Informações do curso</h5>
+                    <div class="informacao-curso-main">
+                        <div>
+                            <input type="text" name="segmentacao" id="segmentacao" class="segmentacao"
+                                placeholder="Segmentação (max 70 caracteres)" maxlength="70">
+                            <input type="text" name="promessa" id="promessa" class="promessa"
+                                placeholder="Promessa (max 210 caracteres)" maxlength="210">
+
+                        </div>
+                        <div>
+
+                            <input type="text" class="beneficio" placeholder="Beneficio (max 100 caracteres e 3 itens)">
+                            <select class="lista-beneficios">
+                                <Option value="0">Lista de beneficios adicionados aqui neste espaço</Option>
+                            </select>
+                        </div>
+                        <div>
+                            <input class="botao-mais-menos" type="image" src="/assets/img/plus-circle-svgrepo-com 1.png"
+                                alt="botão adicionar evidência" id="btn-add-beneficio">
+                            <input class="botao-mais-menos" type="image" id="btn-rmv-beneficio"
+                                src="/assets/img/subtract-round-svgrepo-com 3.png" alt="botão remover evidência">
+                        </div>
+                        <label for="img-beneficios"><strong>Imagem dos beneficios (1200x260)</strong></label>
+                        <br>
+                        <input type="file" name="img-beneficios" id="img-beneficios" class="img-beneficios"
+                            placeholder="Imagem dos beneficios (1200x260)">
+                    </div>
+                </div>
+            </div>
+
+            <script>
+
+            </script>
+
+            <div class="logouticon">
+                <svg id="logout-button" width="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                            d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5zm10-6l5-4-5-4v3H9v2h6v3z" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+
+
+    </script>
+
+    <script src="scripts/checkauth.js" type="module"></script>
+    <script src="scripts/script-editar-equipe.js" type="module"></script>
+    <script src="scripts/script-curso.js" type="module"></script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6TCQ8D2" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="scripts/script.js" type="module"></script>
+</body>
+
+</html>

@@ -68,6 +68,7 @@ document.getElementById('img-forum').addEventListener('change', previewImage('la
 const dbRef = doc(db, 'cards', 'h84fnjrGnt4S4HHGQTAb');
 const storageRef = ref(storage);
 
+
 /***************/
 /*FUNÇÕES GERAIS*/
 /***************/
@@ -510,3 +511,13 @@ async function editarImagem(event, tipo) {
 
 document.getElementById('editar-img-comunidade').addEventListener('click', (event) => editarImagem(event, 'comunidade'));
 document.getElementById('editar-img-forum').addEventListener('click', (event) => editarImagem(event, 'forum'));
+
+
+/*********************************************/
+/********** add curso novo *********/
+/*********************************************/
+
+document.getElementById('add-curso-novo').addEventListener('click', function () {
+    
+    
+});
