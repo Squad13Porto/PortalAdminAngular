@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Coletiva</title>
+    <link rel="stylesheet" href="style/style.css">
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-T6TCQ8D2');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2TCT9J5R3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-L2TCT9J5R3');
+    </script>
+</head>
+
+<body>
+    <div class="container-coletiva">
+        <div class="box-dashboard">
+
+            <header>
+                <span class="brand"><img src="assets/img/ÍCONE_PRETO.png" alt="Logo da Coletiva"></span>
+                <nav>
+                    <div class="navbar">
+                        <span class="nav-item" id="dashboard">Dashboard</span>
+                        <span class="nav-item" id="editar-curso">Editar Cursos</span>
+                        <span class="nav-item" id="editar-carrossel">Editar Carrosseis</span>
+                        <span class="nav-item" id="editar-cards">Editar cards</span>
+                    </div>
+
+                </nav>
+            </header>
+            <div class="content-wrapper">
+                <style>
+                    .input-text-edit {
+                        padding: 1%;
+                        width: 55%;
+                    }
+
+                    .selects {
+                        padding: 1%;
+                        width: 55%;
+                    }
+
+                    .textarea-edit {
+                        margin-bottom: 1%;
+                        resize: none;
+
+                    }
+
+                    .botao-edit {
+                        padding: 1%;
+                        width: 25%;
+                        background-color: #000;
+                        color: #fff;
+                        border: none;
+                        border-radius: 5px;
+                    }
+
+                    .botao-edit:hover {
+
+                        background-color: #fff;
+                        color: #000;
+                        border: 1px solid #000;
+                    }
+
+                    .botao-edit:disabled {
+                        background-color: #ccc;
+                        color: #000;
+                        border: 1px solid #000;
+                    }
+
+
+                    .area-retrato {
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                    }
+
+                    .retrato {
+                        width: 70%;
+                        padding: 1%;
+                        margin: 0 auto;
+                        border: 1px solid #000;
+                        background-color: #000;
+                        border-radius: 5px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        cursor: pointer;
+                        color: #fff;
+                    }
+
+                    .retrato:hover {
+                        background-color: #fff;
+                        color: #000;
+                        border: 1px solid #000;
+                        transition: 0.2s;
+                    }
+
+
+
+                    input[type="file"] {
+                        display: none;
+                    }
+
+                    .img-preview {
+                        padding: 1%;
+                        margin: 0 auto;
+                        border-radius: 15px;
+                        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+                    }
+
+                    .column {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: center;
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    .row {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                    }
+                </style>
+                <div class="menu-lateral" id="menu-editar-equipe">
+                    <div class="menu-lateral-item" id="menu-lateral-add-equipe">Add Equipe</div>
+                    <div class="menu-lateral-item" id="menu-lateral-editar-equipe">Editar Equipe</div>
+                    <div class="menu-lateral-item" id="menu-lateral-remover-equipe">Remover Equipe</div>
+                </div>
+                <div class="menu-lateral" id="menu-editar-validacao">
+                    <div class="menu-lateral-item" id="menu-lateral-add-card-validacao">Add Validação</div>
+                    <div class="menu-lateral-item" id="menu-lateral-editar-card-validacao">Editar Validação</div>
+                    <div class="menu-lateral-item" id="menu-lateral-remover-card-validacao">Remover Validação</div>
+                </div>
+                <div class="menu-lateral" id="menu-editar-diversos">
+                    <div class="menu-lateral-item" id="menu-lateral-link-conteudo">Alterar link video</div>
+                    <div class="menu-lateral-item" id="menu-lateral-img-comunidade">Imagem da comunidade</div>
+                    <div class="menu-lateral-item" id="menu-lateral-img-forum">Imagem do forum</div>
+                </div>
+
+
+
+                <div class="box-painel" id="display-img-comunidade">
+                    <div id="div-alterar-img-comunidade">
+                        <div class="box-edit row">
+                            <div class="column">
+                                <h2>Alterar imagem do frame da comunidade</h2>
+                                <label class="retrato" id="label-img-comunidade">
+                                    <input type="file" name="img-comunidade" id="img-comunidade" accept=".jpg, .png">
+                                    Selecionar Imagem</label>.
+                                <img class="img-preview" id="preview-img-comunidade" alt="Preview da foto de perfil"
+                                    style="width: 502px; height: 361px; display: none;" />
+
+                                <button class="botao-edit" id="editar-img-comunidade">Editar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="box-painel" id="display-img-forum">
+                    <div id="div-alterar-img-forum">
+                        <div class="box-edit row">
+                            <div class="column">
+                                <h2>Alterar imagem do frame do forum</h2>
+                                <label class="retrato" id="label-img-forum">
+                                    <input type="file" name="img-forum" id="img-forum" accept=".jpg, .png">
+                                    Selecionar Imagem</label>.
+                                <img class="img-preview" id="preview-img-forum" alt="Preview da foto de perfil"
+                                    style="width: 502px; height: 361px; display: none;" />
+
+                                <button class="botao-edit" id="editar-img-forum">Editar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-painel" id="display-link-conteudo">
+                    <div id="div-alterar-link-conteudo">
+                        <div class="box-edit row">
+                            <div class="column">
+                                <h2>Alterar o link do video do nosso conteudo</h2>
+                                <input type="text" name="link-youtube" class="input-text-edit" id="link-youtube"
+                                    placeholder="Insira novo link do youtube">
+                                <button class="botao-edit" id="editar-link-youtube">Editar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-painel" id="display-remover-card-validacao">
+                    <div id="div-remover-card">
+                        <div class="box-edit row">
+                            <div class="column">
+                                <h2>Remoção de Card de validação</h2>
+                                <p>Aqui você pode remover cards de validação da landing page</p>
+                                <select class="selects" name="select-card-existente" id="select-card-existente-remover">
+                                    <option value="none">Selecine um membro para remover</option>
+                                </select>
+                                <button class="botao-edit" id="remover-card">Remover</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-painel" id="display-editar-card-validacao">
+                    <div id="div-editar-validacao">
+                        <dov class="box-edit row">
+                            <div class="column">
+
+                                <h2>
+                                    Edição de card de validação
+                                </h2>
+                                <p>
+                                    Aqui você pode editar os cards de validação
+                                </p>
+
+                                <select class="selects" name="select-validacao-existente"
+                                    id="select-validacao-existente">
+                                    <option value="none">Selecine um card para editar</option>
+                                </select>
+
+                                <button class="botao-edit" id="carregar-dados-card">Carregar Dados do card</button>
+
+                                <div class="form-group">
+                                    <input class="input-text-edit" type="text" name="nome-card" id="nome-card-edit"
+                                        placeholder="Nome da pessoa" disabled="true">
+                                    <input class="input-text-edit" type="text" name="profissao" id="profissao-card-edit"
+                                        placeholder="Profissão da pessoa" disabled="true">
+                                    <textarea class="textarea-edit" name="comentario" id="comentario-edit" cols="70"
+                                        rows="10" placeholder="Comentario da pessoa" disabled="true"></textarea>
+                                    <button class="botao-edit" id="salvar-edicao-card">Salvar Edição</button>
+                                </div>
+
+                            </div>
+
+                            <div class="area-retrato" id="area-retrato">
+                                <h4>Foto do perfil</h4>
+                                <img class="img-preview" id="preview-retrato-card-edit" alt="Preview da foto de perfil"
+                                    style="width: 100px; height: 100px; display: none; border-radius: 50%;" />
+                                <label class="retrato" id="label-retrato-card-edit" style="display: none;">
+                                    <input type="file" name="retrato-card" id="retrato-card-edit" accept=".jpg, .png">
+                                    Selecionar Foto de Perfil
+                                </label>
+                            </div>
+                        </dov>
+                    </div>
+                </div>
+
+                <div class="box-painel" id="display-add-card-validacao">
+                    <div id="div-add-card-validacao">
+                        <div class="box-edit row">
+                            <div class="column">
+                                <h2>Adição de cards de validação</h2>
+                                <p>Aqui você pode adicionar novos cards de validação</p>
+
+                                <div class="form-group">
+                                    <input class="input-text-edit" type="text" name="nome-validacao" id="nome-validacao"
+                                        placeholder="Nome da pessoa">
+                                    <input class="input-text-edit" type="text" name="profissao" id="profissao-validacao"
+                                        placeholder="Profissão da pessoa">
+                                    <textarea class="textarea-edit" name="comentario" id="comentario" cols="70"
+                                        rows="10" placeholder="Comentario da pessoa"></textarea>
+                                    <button class="botao-edit" id="adicionar-validacao">Adicionar</button>
+                                </div>
+                            </div>
+                            <div class="area-retrato" id="area-retrato">
+                                <label class="retrato" id="label-retrato-validacao">
+                                    <input type="file" name="retrato-validacao" id="retrato-validacao"
+                                        accept=".jpg, .png">
+                                    Selecionar Foto de Perfil
+                                </label>
+                                <img class="img-preview" id="preview-retrato-validacao"
+                                    alt="Preview da foto de validacao"
+                                    style="width: 100px; height: 100px; display: none; border-radius: 50%;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box-painel" id="display-remover-equipe">
+                <div id="div-remover-equipe">
+                    <div class="box-edit row">
+                        <div class="column">
+                            <h2>Remoção de membro da equipe</h2>
+                            <p>Aqui você pode remover membros que compõe a coletiva</p>
+                            <select class="selects" name="select-equipe-existente" id="select-equipe-existente-remover">
+                                <option value="none">Selecine um membro para remover</option>
+                            </select>
+                            <button class="botao-edit" id="remover-equipe">Remover</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="box-painel" id="display-editar-equipe">
+                <div id="div-editar-equipe">
+                    <dov class="box-edit row">
+                        <div class="column">
+
+                            <h2>
+                                Edição de membro da equipe
+                            </h2>
+                            <p>
+                                Aqui você pode editar membros que compõe a coletiva
+                            </p>
+
+                            <select class="selects" name="select-equipe-existente" id="select-equipe-existente">
+                                <option value="none">Selecine um membro para editar</option>
+                            </select>
+
+                            <button class="botao-edit" id="carregar-dados-pessoa">Carregar Dados da pessoa</button>
+
+                            <div class="form-group">
+                                <input class="input-text-edit" type="text" name="nome-equipe" id="nome-equipe-edit"
+                                    placeholder="Nome da pessoa" disabled="true">
+                                <textarea class="textarea-edit" name="titulacao" id="titulacao-edit" cols="70" rows="10"
+                                    placeholder="Titulação da pessoa" disabled="true"></textarea>
+                                <button class="botao-edit" id="salvar-edicao-equipe">Salvar Edição</button>
+                            </div>
+
+                        </div>
+
+                        <div class="area-retrato" id="area-retrato">
+                            <h4>Foto do perfil</h4>
+                            <img class="img-preview" id="preview-retrato-equipe-edit" alt="Preview da foto de perfil"
+                                style="width: 145px; height: 189px; display: none;" />
+                            <label class="retrato" id="label-retrato-equipe-edit" style="display: none;">
+                                <input type="file" name="retrato-equipe" id="retrato-equipe-edit" accept=".jpg, .png">
+                                Selecionar Foto de Perfil
+                            </label>
+                        </div>
+                    </dov>
+                </div>
+            </div>
+
+            <div class="box-painel" id="display-add-equipe">
+
+                <div id="div-add-equipe">
+                    <div class="box-edit row">
+                        <div class="column">
+                            <h2>Adição de membro da equipe</h2>
+                            <p>Aqui você pode adicionar novos membros que compõe a coletiva</p>
+                            <div class="form-group">
+                                <input class="input-text-edit" type="text" name="nome-equipe" id="nome-equipe"
+                                    placeholder="Nome da pessoa">
+                                <textarea class="textarea-edit" name="titulacao" id="titulacao" cols="70" rows="10"
+                                    placeholder="Titulação da pessoa"></textarea>
+                                <button class="botao-edit" id="adicionar-equipe">Adicionar</button>
+                            </div>
+                        </div>
+                        <div class="area-retrato" id="area-retrato">
+                            <label class="retrato" id="label-retrato-equipe">
+                                <input type="file" name="retrato-equipe" id="retrato-equipe" accept=".jpg, .png">
+                                Selecionar Foto de Perfil
+                            </label>
+                            <img class="img-preview" id="preview-retrato-equipe" alt="Preview da foto de perfil"
+                                style="width: 145px; height: 189px; display: none;" />
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    </div>
+    <div class="logouticon">
+        <svg id="logout-button" width="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <g>
+                <path fill="none" d="M0 0h24v24H0z" />
+                <path
+                    d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5zm10-6l5-4-5-4v3H9v2h6v3z" />
+            </g>
+        </svg>
+    </div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6TCQ8D2" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script src="scripts/checkauth.js" type="module"></script>
+    <script src="scripts/script-editar-equipe.js" type="module"></script>
+    <script src="scripts/script.js" type="module"></script>
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

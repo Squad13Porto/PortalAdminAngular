@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "squad13-7ae1e"
-  }
+  },
+  "targets": {
+    "squad13-7ae1e": {
+      "hosting": {
+        "painel-admin-coletiva": [
+          "painel-admin-coletiva"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }

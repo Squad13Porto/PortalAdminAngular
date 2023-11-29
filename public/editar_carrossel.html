@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Coletiva</title>
+    <link rel="stylesheet" href="style/style.css">
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
+                'gtm.start': new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
+                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-T6TCQ8D2');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2TCT9J5R3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-L2TCT9J5R3');
+    </script>
+</head>
+
+<body>
+    <div class="container-coletiva">
+        <div class="box-dashboard">
+
+            <header>
+                <span class="brand"><img src="assets/img/ÍCONE_PRETO.png" alt="Logo da Coletiva"></span>
+                <nav>
+                    <div class="navbar">
+                        <span class="nav-item" id="dashboard">Dashboard</span>
+                        <span class="nav-item" id="editar-curso">Editar Cursos</span>
+                        <span class="nav-item" id="editar-carrossel">Editar Carrosseis</span>
+                        <span class="nav-item" id="editar-cards">Editar cards</span>
+                    </div>
+
+                </nav>
+            </header>
+            <div class="content-wrapper">
+
+                <div class="box-painel" id="display-remover-imagem">
+
+                    <div id="remover-imagens">
+                        <div class="box-edit">
+                            <h2>Remoção de imagens nos carrosseis</h2>
+                            <p>Aqui você pode remover imagens de aulas nos carrosseis de aulas abertas e
+                                pilulas</p>
+                            <div class="form-group">
+                                <!-- Container adicionado -->
+                                <select class="selects" name="select-carrossel" id="select-carrossel-remover">
+                                    <option value="0">Selecione um carrossell</option>
+                                    <option value="aulas-abertas">Aulas Abertas</option>
+                                    <option value="aulas-pilulas">Aulas Pilulas</option>
+                                </select>
+                                <button id="exibir-imagens">Exibir imagens</button>
+
+                            </div>
+
+                            <!--Area reservada para exibição de imagens-->
+                            <div id="image-area"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-painel" id="display-add-imagem">
+                    <!-- Seu conteúdo central vai aqui -->
+                    <div id="add-imagens">
+                        <div class="box-edit">
+                            <h2>Adição de imagens nos carrosseis</h2>
+                            <p>Aqui você pode inserir novas imagens de aulas nos carrosseis de aulas abertas e
+                                pilulas</p>
+                            <div class="form-group">
+                                <!-- Container adicionado -->
+                                <select class="selects" name="select-carrossel" id="select-carrossel">
+                                    <option value="0">Selecione um carrossell</option>
+                                    <option value="aulas-abertas">Aulas Abertas</option>
+                                    <option value="aulas-pilulas">Aulas Pilulas</option>
+                                </select>
+
+                                <label class="custom-file-upload">
+                                    <input type="file" name="selecionar-foto" id="selecionar-foto" accept=".jpg,.png" />
+                                    Selecionar Foto
+                                </label>
+                            </div>
+                            <div class="image-preview-button-row">
+                                <div class="image-preview" id="image-preview">
+                                    <span>Disponivel apenas imagens PNG e JPG. Resolução maxima 650x370</span>
+                                </div>
+                                <button id="saveButton">Salvar</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="menu-lateral" id="menu-editar-carrossel">
+                    <div class="menu-lateral-item" id="add-imagem">Add Imagem</div>
+                    <div class="menu-lateral-item" id="remover-imagem">Remover Carrossel</div>
+                </div>
+                <div class="logouticon">
+                    <svg id="logout-button" width="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <path fill="none" d="M0 0h24v24H0z" />
+                            <path
+                                d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5zm10-6l5-4-5-4v3H9v2h6v3z" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6TCQ8D2" height="0" width="0"
+                style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+        <script src="scripts/checkauth.js" type="module"></script>
+        <script src="scripts/script.js" type="module"></script>
+
+
+</body>
+
+</html>

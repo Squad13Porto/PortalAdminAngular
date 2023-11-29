@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Coletiva</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div class="container-coletiva">
+        <div class="box-dashboard">
+            <header>
+                <span class="brand"><img src="assets/img/ÍCONE_PRETO.png" alt="Logo da Coletiva"></span>
+                <nav>
+                    <div class="navbar">
+                        <span class="nav-item" id="dashboard">Dashboard</span>
+                        <span class="nav-item" id="editar-curso">Editar Cursos</span>
+                        <span class="nav-item" id="editar-carrossel">Editar Carrosseis</span>
+                        <span class="nav-item" id="editar-equipe">Editar Equipe</span>
+                    </div>
+
+                </nav>
+            </header>
+
+            <div class="menu-lateral" id="menu-editar-cursos">
+                <div class="menu-lateral-item">Add Curso</div>
+                <div class="menu-lateral-item">Editar Curso</div>
+                <div class="menu-lateral-item">Remover Curso</div>
+            </div>
+            <div id="addcurso-frame2" class="box-painel">
+            <div class="carrossel-img">
+                <input type="text" class="selecao-carrossel" placeholder="Selecione em qual carrossel vai esta imagem">
+                <input type="file" class="img-carrossel" placeholder="Clique para adicionar uma imagem(650x370)">
+                <button type="submit" class="botao-slv-carrossel" ><img src="/assets/img/save-floppy_svgrepo.com.png" width="36px" alt=""></button>
+            </div>
+            </div>
+            <div class="logouticon">
+                <svg id="logout-button" width="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                        <path fill="none" d="M0 0h24v24H0z" />
+                        <path
+                            d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H5zm10-6l5-4-5-4v3H9v2h6v3z" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/script.js" type="module"></script>
+</body>
+</html>
